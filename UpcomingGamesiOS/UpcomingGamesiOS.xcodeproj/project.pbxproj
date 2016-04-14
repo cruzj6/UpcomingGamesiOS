@@ -8,13 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		D48A66C31CBFF34F002E362E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A66C21CBFF34F002E362E /* AppDelegate.swift */; };
-		D48A66C51CBFF34F002E362E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A66C41CBFF34F002E362E /* FirstViewController.swift */; };
+		D48A66C51CBFF34F002E362E /* TrackedGamesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A66C41CBFF34F002E362E /* TrackedGamesController.swift */; };
 		D48A66C71CBFF34F002E362E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A66C61CBFF34F002E362E /* SecondViewController.swift */; };
 		D48A66CA1CBFF34F002E362E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D48A66C81CBFF34F002E362E /* Main.storyboard */; };
 		D48A66CC1CBFF350002E362E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D48A66CB1CBFF350002E362E /* Assets.xcassets */; };
 		D48A66CF1CBFF350002E362E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D48A66CD1CBFF350002E362E /* LaunchScreen.storyboard */; };
 		D48A66DA1CBFF350002E362E /* UpcomingGamesiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A66D91CBFF350002E362E /* UpcomingGamesiOSTests.swift */; };
 		D48A66E51CBFF350002E362E /* UpcomingGamesiOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A66E41CBFF350002E362E /* UpcomingGamesiOSUITests.swift */; };
+		D48A66F91CBFF8A4002E362E /* UserTrackedGames.xib in Resources */ = {isa = PBXBuildFile; fileRef = D48A66F81CBFF8A4002E362E /* UserTrackedGames.xib */; };
+		D48A66FB1CBFF9B5002E362E /* TrackedGamesListItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = D48A66FA1CBFF9B5002E362E /* TrackedGamesListItem.xib */; };
+		D48A66FF1CBFFA95002E362E /* TrackedGameItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A66FE1CBFFA95002E362E /* TrackedGameItems.swift */; };
+		D48A67011CC008DF002E362E /* UserTrackedGamesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A67001CC008DF002E362E /* UserTrackedGamesData.swift */; };
+		D48A67031CC01416002E362E /* httpRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A67021CC01416002E362E /* httpRequestManager.swift */; };
+		D48A67051CC01825002E362E /* TrackedGameItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A67041CC01825002E362E /* TrackedGameItem.swift */; };
+		D48A67071CC037BF002E362E /* UserDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A67061CC037BF002E362E /* UserDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +44,7 @@
 /* Begin PBXFileReference section */
 		D48A66BF1CBFF34F002E362E /* UpcomingGamesiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UpcomingGamesiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D48A66C21CBFF34F002E362E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D48A66C41CBFF34F002E362E /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		D48A66C41CBFF34F002E362E /* TrackedGamesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackedGamesController.swift; sourceTree = "<group>"; };
 		D48A66C61CBFF34F002E362E /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		D48A66C91CBFF34F002E362E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D48A66CB1CBFF350002E362E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +56,13 @@
 		D48A66E01CBFF350002E362E /* UpcomingGamesiOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UpcomingGamesiOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D48A66E41CBFF350002E362E /* UpcomingGamesiOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingGamesiOSUITests.swift; sourceTree = "<group>"; };
 		D48A66E61CBFF350002E362E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D48A66F81CBFF8A4002E362E /* UserTrackedGames.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTrackedGames.xib; sourceTree = "<group>"; };
+		D48A66FA1CBFF9B5002E362E /* TrackedGamesListItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrackedGamesListItem.xib; sourceTree = "<group>"; };
+		D48A66FE1CBFFA95002E362E /* TrackedGameItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackedGameItems.swift; sourceTree = "<group>"; };
+		D48A67001CC008DF002E362E /* UserTrackedGamesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTrackedGamesData.swift; sourceTree = "<group>"; };
+		D48A67021CC01416002E362E /* httpRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = httpRequestManager.swift; sourceTree = "<group>"; };
+		D48A67041CC01825002E362E /* TrackedGameItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackedGameItem.swift; sourceTree = "<group>"; };
+		D48A67061CC037BF002E362E /* UserDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,12 +113,12 @@
 		D48A66C11CBFF34F002E362E /* UpcomingGamesiOS */ = {
 			isa = PBXGroup;
 			children = (
+				D48A66F51CBFF3C4002E362E /* Storyboards */,
+				D48A66F41CBFF3B3002E362E /* Resources */,
+				D48A66F31CBFF3A6002E362E /* UI */,
+				D48A66F21CBFF38B002E362E /* Framedation */,
 				D48A66C21CBFF34F002E362E /* AppDelegate.swift */,
-				D48A66C41CBFF34F002E362E /* FirstViewController.swift */,
-				D48A66C61CBFF34F002E362E /* SecondViewController.swift */,
-				D48A66C81CBFF34F002E362E /* Main.storyboard */,
 				D48A66CB1CBFF350002E362E /* Assets.xcassets */,
-				D48A66CD1CBFF350002E362E /* LaunchScreen.storyboard */,
 				D48A66D01CBFF350002E362E /* Info.plist */,
 			);
 			path = UpcomingGamesiOS;
@@ -126,6 +140,77 @@
 				D48A66E61CBFF350002E362E /* Info.plist */,
 			);
 			path = UpcomingGamesiOSUITests;
+			sourceTree = "<group>";
+		};
+		D48A66F21CBFF38B002E362E /* Framedation */ = {
+			isa = PBXGroup;
+			children = (
+				D48A67021CC01416002E362E /* httpRequestManager.swift */,
+				D48A67041CC01825002E362E /* TrackedGameItem.swift */,
+				D48A67061CC037BF002E362E /* UserDataManager.swift */,
+			);
+			name = Framedation;
+			sourceTree = "<group>";
+		};
+		D48A66F31CBFF3A6002E362E /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D48A66F71CBFF724002E362E /* TopTab */,
+				D48A66F61CBFF70E002E362E /* TrackedGames */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		D48A66F41CBFF3B3002E362E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		D48A66F51CBFF3C4002E362E /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				D48A66CD1CBFF350002E362E /* LaunchScreen.storyboard */,
+				D48A66C81CBFF34F002E362E /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		D48A66F61CBFF70E002E362E /* TrackedGames */ = {
+			isa = PBXGroup;
+			children = (
+				D48A66FD1CBFFA6B002E362E /* Controllers */,
+				D48A66FC1CBFFA31002E362E /* Views */,
+			);
+			name = TrackedGames;
+			sourceTree = "<group>";
+		};
+		D48A66F71CBFF724002E362E /* TopTab */ = {
+			isa = PBXGroup;
+			children = (
+				D48A66C61CBFF34F002E362E /* SecondViewController.swift */,
+			);
+			name = TopTab;
+			sourceTree = "<group>";
+		};
+		D48A66FC1CBFFA31002E362E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D48A66F81CBFF8A4002E362E /* UserTrackedGames.xib */,
+				D48A66FA1CBFF9B5002E362E /* TrackedGamesListItem.xib */,
+				D48A66FE1CBFFA95002E362E /* TrackedGameItems.swift */,
+				D48A67001CC008DF002E362E /* UserTrackedGamesData.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		D48A66FD1CBFFA6B002E362E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D48A66C41CBFF34F002E362E /* TrackedGamesController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,9 +317,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D48A66FB1CBFF9B5002E362E /* TrackedGamesListItem.xib in Resources */,
 				D48A66CF1CBFF350002E362E /* LaunchScreen.storyboard in Resources */,
 				D48A66CC1CBFF350002E362E /* Assets.xcassets in Resources */,
 				D48A66CA1CBFF34F002E362E /* Main.storyboard in Resources */,
+				D48A66F91CBFF8A4002E362E /* UserTrackedGames.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,9 +346,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D48A67051CC01825002E362E /* TrackedGameItem.swift in Sources */,
 				D48A66C71CBFF34F002E362E /* SecondViewController.swift in Sources */,
+				D48A67031CC01416002E362E /* httpRequestManager.swift in Sources */,
 				D48A66C31CBFF34F002E362E /* AppDelegate.swift in Sources */,
-				D48A66C51CBFF34F002E362E /* FirstViewController.swift in Sources */,
+				D48A67071CC037BF002E362E /* UserDataManager.swift in Sources */,
+				D48A66C51CBFF34F002E362E /* TrackedGamesController.swift in Sources */,
+				D48A66FF1CBFFA95002E362E /* TrackedGameItems.swift in Sources */,
+				D48A67011CC008DF002E362E /* UserTrackedGamesData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
