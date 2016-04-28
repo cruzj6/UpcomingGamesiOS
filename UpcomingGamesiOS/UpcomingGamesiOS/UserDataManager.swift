@@ -13,6 +13,12 @@ class UserDataManager:NSObject{
     private var curTrackedGames : [TrackedGameItem]?
     static var instance = UserDataManager();
     
+    var UserTrackedGames : [TrackedGameItem]{
+        get{
+            return curTrackedGames!;
+        }
+    }
+    
     override init(){
         super.init();
     }
@@ -29,11 +35,6 @@ class UserDataManager:NSObject{
                 handleUserInitFin();
             });
         });
-    }
-    
-    func getUsersTrackedGames()
-    {
-    
     }
     
     //Builds up the data for the user utilizing httpReqmanager

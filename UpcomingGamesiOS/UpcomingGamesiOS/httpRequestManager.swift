@@ -50,8 +50,8 @@ class httpRequestManager : NSObject{
                         let curItem = trackedGamesData.objectAtIndex(i);
                         let title = curItem["name"] as! String
                         let imgurl = curItem["imageLink"] as! String
-                        let gbid = Int(curItem["gbGameId"] as! String)
-                        let nextItem = TrackedGameItem(title: title, imgurl: imgurl, gbid: gbid!, releaseDate: "")
+                        let gbid = curItem["gbGameId"]
+                        let nextItem = TrackedGameItem(title: title, imgurl: imgurl, gbid: gbid as! Int, releaseDate: "")
                         
                         returnItems.append(nextItem)
                     }

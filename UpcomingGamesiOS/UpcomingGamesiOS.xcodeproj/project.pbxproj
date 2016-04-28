@@ -15,13 +15,14 @@
 		D48A66CF1CBFF350002E362E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D48A66CD1CBFF350002E362E /* LaunchScreen.storyboard */; };
 		D48A66DA1CBFF350002E362E /* UpcomingGamesiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A66D91CBFF350002E362E /* UpcomingGamesiOSTests.swift */; };
 		D48A66E51CBFF350002E362E /* UpcomingGamesiOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A66E41CBFF350002E362E /* UpcomingGamesiOSUITests.swift */; };
-		D48A66F91CBFF8A4002E362E /* UserTrackedGames.xib in Resources */ = {isa = PBXBuildFile; fileRef = D48A66F81CBFF8A4002E362E /* UserTrackedGames.xib */; };
 		D48A66FB1CBFF9B5002E362E /* TrackedGamesListItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = D48A66FA1CBFF9B5002E362E /* TrackedGamesListItem.xib */; };
-		D48A66FF1CBFFA95002E362E /* TrackedGameItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A66FE1CBFFA95002E362E /* TrackedGameItems.swift */; };
-		D48A67011CC008DF002E362E /* UserTrackedGamesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A67001CC008DF002E362E /* UserTrackedGamesData.swift */; };
+		D48A66FF1CBFFA95002E362E /* UserTrackedGamesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A66FE1CBFFA95002E362E /* UserTrackedGamesView.swift */; };
+		D48A67011CC008DF002E362E /* UserTrackedGamesCntrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A67001CC008DF002E362E /* UserTrackedGamesCntrl.swift */; };
 		D48A67031CC01416002E362E /* httpRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A67021CC01416002E362E /* httpRequestManager.swift */; };
 		D48A67051CC01825002E362E /* TrackedGameItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A67041CC01825002E362E /* TrackedGameItem.swift */; };
 		D48A67071CC037BF002E362E /* UserDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A67061CC037BF002E362E /* UserDataManager.swift */; };
+		D48A67091CCAED7B002E362E /* TrackedGamesListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A67081CCAED7B002E362E /* TrackedGamesListItemCell.swift */; };
+		D48A670B1CD1C43B002E362E /* TrackedGameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D48A670A1CD1C43B002E362E /* TrackedGameView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,13 +57,14 @@
 		D48A66E01CBFF350002E362E /* UpcomingGamesiOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UpcomingGamesiOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D48A66E41CBFF350002E362E /* UpcomingGamesiOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingGamesiOSUITests.swift; sourceTree = "<group>"; };
 		D48A66E61CBFF350002E362E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D48A66F81CBFF8A4002E362E /* UserTrackedGames.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTrackedGames.xib; sourceTree = "<group>"; };
 		D48A66FA1CBFF9B5002E362E /* TrackedGamesListItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrackedGamesListItem.xib; sourceTree = "<group>"; };
-		D48A66FE1CBFFA95002E362E /* TrackedGameItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackedGameItems.swift; sourceTree = "<group>"; };
-		D48A67001CC008DF002E362E /* UserTrackedGamesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTrackedGamesData.swift; sourceTree = "<group>"; };
+		D48A66FE1CBFFA95002E362E /* UserTrackedGamesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTrackedGamesView.swift; sourceTree = "<group>"; };
+		D48A67001CC008DF002E362E /* UserTrackedGamesCntrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTrackedGamesCntrl.swift; sourceTree = "<group>"; };
 		D48A67021CC01416002E362E /* httpRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = httpRequestManager.swift; sourceTree = "<group>"; };
 		D48A67041CC01825002E362E /* TrackedGameItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackedGameItem.swift; sourceTree = "<group>"; };
 		D48A67061CC037BF002E362E /* UserDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataManager.swift; sourceTree = "<group>"; };
+		D48A67081CCAED7B002E362E /* TrackedGamesListItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackedGamesListItemCell.swift; sourceTree = "<group>"; };
+		D48A670A1CD1C43B002E362E /* TrackedGameView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrackedGameView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,10 +199,11 @@
 		D48A66FC1CBFFA31002E362E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D48A66F81CBFF8A4002E362E /* UserTrackedGames.xib */,
 				D48A66FA1CBFF9B5002E362E /* TrackedGamesListItem.xib */,
-				D48A66FE1CBFFA95002E362E /* TrackedGameItems.swift */,
-				D48A67001CC008DF002E362E /* UserTrackedGamesData.swift */,
+				D48A66FE1CBFFA95002E362E /* UserTrackedGamesView.swift */,
+				D48A67001CC008DF002E362E /* UserTrackedGamesCntrl.swift */,
+				D48A67081CCAED7B002E362E /* TrackedGamesListItemCell.swift */,
+				D48A670A1CD1C43B002E362E /* TrackedGameView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -318,10 +321,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D48A66FB1CBFF9B5002E362E /* TrackedGamesListItem.xib in Resources */,
+				D48A670B1CD1C43B002E362E /* TrackedGameView.xib in Resources */,
 				D48A66CF1CBFF350002E362E /* LaunchScreen.storyboard in Resources */,
 				D48A66CC1CBFF350002E362E /* Assets.xcassets in Resources */,
 				D48A66CA1CBFF34F002E362E /* Main.storyboard in Resources */,
-				D48A66F91CBFF8A4002E362E /* UserTrackedGames.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,8 +355,9 @@
 				D48A66C31CBFF34F002E362E /* AppDelegate.swift in Sources */,
 				D48A67071CC037BF002E362E /* UserDataManager.swift in Sources */,
 				D48A66C51CBFF34F002E362E /* TrackedGamesController.swift in Sources */,
-				D48A66FF1CBFFA95002E362E /* TrackedGameItems.swift in Sources */,
-				D48A67011CC008DF002E362E /* UserTrackedGamesData.swift in Sources */,
+				D48A67091CCAED7B002E362E /* TrackedGamesListItemCell.swift in Sources */,
+				D48A66FF1CBFFA95002E362E /* UserTrackedGamesView.swift in Sources */,
+				D48A67011CC008DF002E362E /* UserTrackedGamesCntrl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,6 +503,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JosephCruz.UpcomingGamesiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -510,6 +515,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JosephCruz.UpcomingGamesiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
