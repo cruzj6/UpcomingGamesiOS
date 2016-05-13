@@ -23,6 +23,14 @@
 		D48A67071CC037BF002E362E /* UserDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A67061CC037BF002E362E /* UserDataManager.swift */; };
 		D48A67091CCAED7B002E362E /* TrackedGamesListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A67081CCAED7B002E362E /* TrackedGamesListItemCell.swift */; };
 		D48A670B1CD1C43B002E362E /* TrackedGameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D48A670A1CD1C43B002E362E /* TrackedGameView.xib */; };
+		D48A670D1CE37B00002E362E /* GameInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A670C1CE37B00002E362E /* GameInfoViewController.swift */; };
+		D48A670F1CE4CA32002E362E /* NewsArticleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A670E1CE4CA32002E362E /* NewsArticleItem.swift */; };
+		D48A67111CE4F340002E362E /* NewsArticlesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D48A67101CE4F340002E362E /* NewsArticlesView.xib */; };
+		D48A67131CE502FB002E362E /* NewsArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A67121CE502FB002E362E /* NewsArticlesViewController.swift */; };
+		D48A67151CE5F632002E362E /* GameNewsArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D48A67141CE5F632002E362E /* GameNewsArticleCell.xib */; };
+		D48A67171CE5F6DB002E362E /* NewsArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A67161CE5F6DB002E362E /* NewsArticleCell.swift */; };
+		D48A67191CE60173002E362E /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A67181CE60173002E362E /* WebViewController.swift */; };
+		D48A671B1CE60204002E362E /* WebURLView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D48A671A1CE60204002E362E /* WebURLView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +73,14 @@
 		D48A67061CC037BF002E362E /* UserDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDataManager.swift; sourceTree = "<group>"; };
 		D48A67081CCAED7B002E362E /* TrackedGamesListItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackedGamesListItemCell.swift; sourceTree = "<group>"; };
 		D48A670A1CD1C43B002E362E /* TrackedGameView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrackedGameView.xib; sourceTree = "<group>"; };
+		D48A670C1CE37B00002E362E /* GameInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameInfoViewController.swift; sourceTree = "<group>"; };
+		D48A670E1CE4CA32002E362E /* NewsArticleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsArticleItem.swift; sourceTree = "<group>"; };
+		D48A67101CE4F340002E362E /* NewsArticlesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsArticlesView.xib; sourceTree = "<group>"; };
+		D48A67121CE502FB002E362E /* NewsArticlesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsArticlesViewController.swift; sourceTree = "<group>"; };
+		D48A67141CE5F632002E362E /* GameNewsArticleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameNewsArticleCell.xib; sourceTree = "<group>"; };
+		D48A67161CE5F6DB002E362E /* NewsArticleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsArticleCell.swift; sourceTree = "<group>"; };
+		D48A67181CE60173002E362E /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		D48A671A1CE60204002E362E /* WebURLView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebURLView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +166,7 @@
 				D48A67021CC01416002E362E /* httpRequestManager.swift */,
 				D48A67041CC01825002E362E /* TrackedGameItem.swift */,
 				D48A67061CC037BF002E362E /* UserDataManager.swift */,
+				D48A670E1CE4CA32002E362E /* NewsArticleItem.swift */,
 			);
 			name = Framedation;
 			sourceTree = "<group>";
@@ -157,6 +174,7 @@
 		D48A66F31CBFF3A6002E362E /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				D48A66C61CBFF34F002E362E /* SecondViewController.swift */,
 				D48A66F71CBFF724002E362E /* TopTab */,
 				D48A66F61CBFF70E002E362E /* TrackedGames */,
 			);
@@ -191,7 +209,6 @@
 		D48A66F71CBFF724002E362E /* TopTab */ = {
 			isa = PBXGroup;
 			children = (
-				D48A66C61CBFF34F002E362E /* SecondViewController.swift */,
 			);
 			name = TopTab;
 			sourceTree = "<group>";
@@ -199,11 +216,14 @@
 		D48A66FC1CBFFA31002E362E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D48A67101CE4F340002E362E /* NewsArticlesView.xib */,
+				D48A671A1CE60204002E362E /* WebURLView.xib */,
+				D48A67141CE5F632002E362E /* GameNewsArticleCell.xib */,
+				D48A67161CE5F6DB002E362E /* NewsArticleCell.swift */,
 				D48A66FA1CBFF9B5002E362E /* TrackedGamesListItem.xib */,
-				D48A66FE1CBFFA95002E362E /* UserTrackedGamesView.swift */,
-				D48A67001CC008DF002E362E /* UserTrackedGamesCntrl.swift */,
 				D48A67081CCAED7B002E362E /* TrackedGamesListItemCell.swift */,
 				D48A670A1CD1C43B002E362E /* TrackedGameView.xib */,
+				D48A66FE1CBFFA95002E362E /* UserTrackedGamesView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -211,7 +231,11 @@
 		D48A66FD1CBFFA6B002E362E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D48A67121CE502FB002E362E /* NewsArticlesViewController.swift */,
 				D48A66C41CBFF34F002E362E /* TrackedGamesController.swift */,
+				D48A670C1CE37B00002E362E /* GameInfoViewController.swift */,
+				D48A67001CC008DF002E362E /* UserTrackedGamesCntrl.swift */,
+				D48A67181CE60173002E362E /* WebViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -320,8 +344,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D48A67111CE4F340002E362E /* NewsArticlesView.xib in Resources */,
 				D48A66FB1CBFF9B5002E362E /* TrackedGamesListItem.xib in Resources */,
 				D48A670B1CD1C43B002E362E /* TrackedGameView.xib in Resources */,
+				D48A671B1CE60204002E362E /* WebURLView.xib in Resources */,
+				D48A67151CE5F632002E362E /* GameNewsArticleCell.xib in Resources */,
 				D48A66CF1CBFF350002E362E /* LaunchScreen.storyboard in Resources */,
 				D48A66CC1CBFF350002E362E /* Assets.xcassets in Resources */,
 				D48A66CA1CBFF34F002E362E /* Main.storyboard in Resources */,
@@ -351,11 +378,16 @@
 			files = (
 				D48A67051CC01825002E362E /* TrackedGameItem.swift in Sources */,
 				D48A66C71CBFF34F002E362E /* SecondViewController.swift in Sources */,
+				D48A670F1CE4CA32002E362E /* NewsArticleItem.swift in Sources */,
 				D48A67031CC01416002E362E /* httpRequestManager.swift in Sources */,
 				D48A66C31CBFF34F002E362E /* AppDelegate.swift in Sources */,
+				D48A670D1CE37B00002E362E /* GameInfoViewController.swift in Sources */,
 				D48A67071CC037BF002E362E /* UserDataManager.swift in Sources */,
 				D48A66C51CBFF34F002E362E /* TrackedGamesController.swift in Sources */,
+				D48A67171CE5F6DB002E362E /* NewsArticleCell.swift in Sources */,
+				D48A67131CE502FB002E362E /* NewsArticlesViewController.swift in Sources */,
 				D48A67091CCAED7B002E362E /* TrackedGamesListItemCell.swift in Sources */,
+				D48A67191CE60173002E362E /* WebViewController.swift in Sources */,
 				D48A66FF1CBFFA95002E362E /* UserTrackedGamesView.swift in Sources */,
 				D48A67011CC008DF002E362E /* UserTrackedGamesCntrl.swift in Sources */,
 			);

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WebViewController" customModule="UpcomingGamesiOS" customModuleProvider="target">
+            <connections>
+                <outlet property="closeButton" destination="2d8-9h-dUB" id="Enn-KO-GMz"/>
+                <outlet property="view" destination="iN0-l3-epB" id="WXf-id-axH"/>
+                <outlet property="webView" destination="w5C-0B-TK3" id="RQ0-56-eaQ"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oQ4-eV-yiW">
+                    <rect key="frame" x="0.0" y="562" width="600" height="44"/>
+                    <items>
+                        <barButtonItem title="Item" id="CbF-QG-wj8"/>
+                    </items>
+                </toolbar>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2d8-9h-dUB">
+                    <rect key="frame" x="8" y="22" width="46" height="30"/>
+                    <state key="normal" title="Close"/>
+                    <connections>
+                        <action selector="closeClick:" destination="-1" eventType="touchUpInside" id="Hdl-Ks-Ju1"/>
+                    </connections>
+                </button>
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w5C-0B-TK3">
+                    <rect key="frame" x="0.0" y="60" width="600" height="502"/>
+                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                </webView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="oQ4-eV-yiW" firstAttribute="trailing" secondItem="w5C-0B-TK3" secondAttribute="trailing" id="5vA-rS-Cn2"/>
+                <constraint firstAttribute="trailing" secondItem="oQ4-eV-yiW" secondAttribute="trailing" id="RJD-Xz-gaz"/>
+                <constraint firstItem="w5C-0B-TK3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="RRJ-oh-fst"/>
+                <constraint firstItem="w5C-0B-TK3" firstAttribute="top" secondItem="2d8-9h-dUB" secondAttribute="bottom" constant="8" id="TPY-VL-onb"/>
+                <constraint firstAttribute="bottom" secondItem="oQ4-eV-yiW" secondAttribute="bottom" constant="-6" id="Y3H-pX-3iP"/>
+                <constraint firstItem="2d8-9h-dUB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="22" id="aBQ-Un-s0m"/>
+                <constraint firstItem="2d8-9h-dUB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="lKU-0o-p5h"/>
+                <constraint firstItem="oQ4-eV-yiW" firstAttribute="top" secondItem="w5C-0B-TK3" secondAttribute="bottom" id="rRO-c1-zG5"/>
+                <constraint firstItem="oQ4-eV-yiW" firstAttribute="leading" secondItem="w5C-0B-TK3" secondAttribute="leading" id="wHw-tE-sSJ"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

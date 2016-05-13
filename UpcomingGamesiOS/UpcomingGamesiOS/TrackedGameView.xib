@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -13,11 +12,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Okb-z1-KqN">
-                    <rect key="frame" x="8" y="47" width="359" height="332"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="332" id="rVt-Ea-XNg"/>
-                    </constraints>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Okb-z1-KqN">
+                    <rect key="frame" x="8" y="8" width="359" height="651"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pV8-kw-rpP">
                         <size key="itemSize" width="50" height="50"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -28,10 +24,10 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="Okb-z1-KqN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="47" id="CJY-ny-BJW"/>
-                <constraint firstItem="Okb-z1-KqN" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="359:667" id="ZoU-Jp-SmW"/>
-                <constraint firstItem="Okb-z1-KqN" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="dBh-hp-xZN"/>
-                <constraint firstItem="Okb-z1-KqN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="mx2-bL-FIn"/>
+                <constraint firstItem="Okb-z1-KqN" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="0S6-Nf-bCJ"/>
+                <constraint firstItem="Okb-z1-KqN" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottomMargin" id="NxX-nN-8op"/>
+                <constraint firstItem="Okb-z1-KqN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="TfB-9p-HPp"/>
+                <constraint firstItem="Okb-z1-KqN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" id="UpQ-8V-52d"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <connections>
