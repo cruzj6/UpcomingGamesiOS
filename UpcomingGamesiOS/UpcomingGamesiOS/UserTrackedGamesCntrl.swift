@@ -37,6 +37,7 @@ class UserTrackedGamesData : UIViewController, UICollectionViewDataSource, UICol
         
         //Set the game title
         trackedGameCell.GameName = curGame.getTitle();
+        trackedGameCell.releaseDateLabel.text = curGame.getReleaseDate()
 
         return trackedGameCell;
     }

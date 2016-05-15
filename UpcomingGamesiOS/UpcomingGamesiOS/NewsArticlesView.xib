@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewsArticlesViewController" customModule="UpcomingGamesiOS" customModuleProvider="target">
@@ -17,18 +16,18 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="News" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tIr-wr-GKS">
-                    <rect key="frame" x="8" y="8" width="584" height="30"/>
-                    <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="20"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <tableView autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hH2-mo-uyc">
-                    <rect key="frame" x="0.0" y="39" width="600" height="561"/>
+                <tableView autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hH2-mo-uyc">
+                    <rect key="frame" x="0.0" y="8" width="600" height="592"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstAttribute="height" constant="549" id="0JR-bI-YI3"/>
                         <constraint firstAttribute="width" constant="600" id="OVt-wH-0Dd"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="0JR-bI-YI3"/>
+                        </mask>
+                    </variation>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="bA9-jY-Xk3"/>
                         <outlet property="delegate" destination="-1" id="zRG-jl-L4v"/>
@@ -37,14 +36,10 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="tIr-wr-GKS" firstAttribute="centerX" secondItem="hH2-mo-uyc" secondAttribute="centerX" id="2Vy-cU-Dc8"/>
-                <constraint firstAttribute="bottom" secondItem="hH2-mo-uyc" secondAttribute="bottom" id="4WO-XL-RWO"/>
-                <constraint firstItem="tIr-wr-GKS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="SHU-ER-B2n"/>
-                <constraint firstItem="hH2-mo-uyc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="59" id="T5X-DA-GfT"/>
-                <constraint firstItem="hH2-mo-uyc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="f98-Db-7hd"/>
-                <constraint firstItem="hH2-mo-uyc" firstAttribute="top" secondItem="tIr-wr-GKS" secondAttribute="bottom" constant="8" symbolic="YES" id="vXg-cl-aro"/>
-                <constraint firstItem="tIr-wr-GKS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="y16-Bf-98i"/>
-                <constraint firstItem="hH2-mo-uyc" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="zdO-IL-BCE"/>
+                <constraint firstAttribute="bottom" secondItem="hH2-mo-uyc" secondAttribute="bottom" id="CdT-Cf-CpP"/>
+                <constraint firstItem="hH2-mo-uyc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Mic-SS-Voi"/>
+                <constraint firstItem="hH2-mo-uyc" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="ZqQ-GD-wsV"/>
+                <constraint firstItem="hH2-mo-uyc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="kfj-sr-dVc"/>
             </constraints>
             <point key="canvasLocation" x="151" y="206"/>
         </view>

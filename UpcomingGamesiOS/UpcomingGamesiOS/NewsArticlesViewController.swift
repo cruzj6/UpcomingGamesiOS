@@ -12,10 +12,14 @@ class NewsArticlesViewController: UIViewController, UITableViewDataSource, UITab
     
     @IBOutlet weak var tableView: UITableView!
     var newsArtItems : [NewsArticleItem]!
+    var ownerVC : UIViewController!
     
-    init(nibname: String)
+    init(nibname: String, ownerVC: UIViewController?)
     {
         super.init(nibName: nibname, bundle: nil);
+        
+        //Let this be nil, if it is the owner is itself
+        self.ownerVC = (ownerVC == nil ? self : ownerVC)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -55,11 +59,13 @@ class NewsArticlesViewController: UIViewController, UITableViewDataSource, UITab
         let webViewController = WebViewController(nibName: "WebURLView", bundle: nil)
         webViewController.setURLToLoad(urlString)
         
-        self.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
+        var presentingVC : UIViewController! = ownerVC == nil ? self : ownerVC
+        
+        presentingVC.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
         // Cover Vertical is necessary for CurrentContext
-        self.modalPresentationStyle = .CurrentContext
+        presentingVC.modalPresentationStyle = .CurrentContext
         // Display on top of    current UIView
-        self.presentViewController(webViewController, animated: true, completion: nil)
+        presentingVC.presentViewController(webViewController, animated: true, completion: nil)
         
     }
     

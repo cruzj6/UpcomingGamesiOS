@@ -11,6 +11,7 @@ import UIKit
 class TrackedGamesListItemCell: UICollectionViewCell {
     @IBOutlet weak var gameImageView: UIImageView!
     @IBOutlet weak var gameTitle: UILabel!
+    @IBOutlet weak var releaseDateLabel: UILabel!
     
     var GameName : String{
         set{

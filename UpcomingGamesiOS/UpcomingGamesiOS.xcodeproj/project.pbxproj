@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D409F5B21CE839E100EA5025 /* MediaViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D409F5B11CE839E100EA5025 /* MediaViewCell.xib */; };
+		D409F5B61CE83ED200EA5025 /* MediaViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D409F5B51CE83ED200EA5025 /* MediaViewCell.swift */; };
+		D43A179B1CE8066100D31217 /* MediaView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D43A179A1CE8066100D31217 /* MediaView.xib */; };
+		D43A179D1CE8072F00D31217 /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43A179C1CE8072F00D31217 /* MediaViewController.swift */; };
+		D43A179F1CE8099F00D31217 /* GameMediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43A179E1CE8099F00D31217 /* GameMediaItem.swift */; };
 		D48A66C31CBFF34F002E362E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A66C21CBFF34F002E362E /* AppDelegate.swift */; };
 		D48A66C51CBFF34F002E362E /* TrackedGamesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A66C41CBFF34F002E362E /* TrackedGamesController.swift */; };
 		D48A66C71CBFF34F002E362E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A66C61CBFF34F002E362E /* SecondViewController.swift */; };
@@ -31,6 +36,7 @@
 		D48A67171CE5F6DB002E362E /* NewsArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A67161CE5F6DB002E362E /* NewsArticleCell.swift */; };
 		D48A67191CE60173002E362E /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A67181CE60173002E362E /* WebViewController.swift */; };
 		D48A671B1CE60204002E362E /* WebURLView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D48A671A1CE60204002E362E /* WebURLView.xib */; };
+		FF57FF16FDAF659FCD311F8B /* Pods_UpcomingGamesiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C658F6BE16A3A900EED5A7B9 /* Pods_UpcomingGamesiOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +57,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		469850041B4EAA695B99E528 /* Pods-UpcomingGamesiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpcomingGamesiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UpcomingGamesiOS/Pods-UpcomingGamesiOS.debug.xcconfig"; sourceTree = "<group>"; };
+		C658F6BE16A3A900EED5A7B9 /* Pods_UpcomingGamesiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UpcomingGamesiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D409F5B11CE839E100EA5025 /* MediaViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MediaViewCell.xib; sourceTree = "<group>"; };
+		D409F5B51CE83ED200EA5025 /* MediaViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaViewCell.swift; sourceTree = "<group>"; };
+		D43A179A1CE8066100D31217 /* MediaView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MediaView.xib; sourceTree = "<group>"; };
+		D43A179C1CE8072F00D31217 /* MediaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
+		D43A179E1CE8099F00D31217 /* GameMediaItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMediaItem.swift; sourceTree = "<group>"; };
 		D48A66BF1CBFF34F002E362E /* UpcomingGamesiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UpcomingGamesiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D48A66C21CBFF34F002E362E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D48A66C41CBFF34F002E362E /* TrackedGamesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackedGamesController.swift; sourceTree = "<group>"; };
@@ -81,6 +94,7 @@
 		D48A67161CE5F6DB002E362E /* NewsArticleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsArticleCell.swift; sourceTree = "<group>"; };
 		D48A67181CE60173002E362E /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		D48A671A1CE60204002E362E /* WebURLView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebURLView.xib; sourceTree = "<group>"; };
+		FB43D463A9D60A26D9BD0ED2 /* Pods-UpcomingGamesiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpcomingGamesiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-UpcomingGamesiOS/Pods-UpcomingGamesiOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF57FF16FDAF659FCD311F8B /* Pods_UpcomingGamesiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +123,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE1CE53332880D52F326993A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				469850041B4EAA695B99E528 /* Pods-UpcomingGamesiOS.debug.xcconfig */,
+				FB43D463A9D60A26D9BD0ED2 /* Pods-UpcomingGamesiOS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CE5FA5A4024D6F5EED5B3EB4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C658F6BE16A3A900EED5A7B9 /* Pods_UpcomingGamesiOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D48A66B61CBFF34F002E362E = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +147,8 @@
 				D48A66D81CBFF350002E362E /* UpcomingGamesiOSTests */,
 				D48A66E31CBFF350002E362E /* UpcomingGamesiOSUITests */,
 				D48A66C01CBFF34F002E362E /* Products */,
+				AE1CE53332880D52F326993A /* Pods */,
+				CE5FA5A4024D6F5EED5B3EB4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -167,6 +201,7 @@
 				D48A67041CC01825002E362E /* TrackedGameItem.swift */,
 				D48A67061CC037BF002E362E /* UserDataManager.swift */,
 				D48A670E1CE4CA32002E362E /* NewsArticleItem.swift */,
+				D43A179E1CE8099F00D31217 /* GameMediaItem.swift */,
 			);
 			name = Framedation;
 			sourceTree = "<group>";
@@ -216,14 +251,17 @@
 		D48A66FC1CBFFA31002E362E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D48A67101CE4F340002E362E /* NewsArticlesView.xib */,
-				D48A671A1CE60204002E362E /* WebURLView.xib */,
-				D48A67141CE5F632002E362E /* GameNewsArticleCell.xib */,
-				D48A67161CE5F6DB002E362E /* NewsArticleCell.swift */,
-				D48A66FA1CBFF9B5002E362E /* TrackedGamesListItem.xib */,
-				D48A67081CCAED7B002E362E /* TrackedGamesListItemCell.swift */,
 				D48A670A1CD1C43B002E362E /* TrackedGameView.xib */,
 				D48A66FE1CBFFA95002E362E /* UserTrackedGamesView.swift */,
+				D48A66FA1CBFF9B5002E362E /* TrackedGamesListItem.xib */,
+				D48A67081CCAED7B002E362E /* TrackedGamesListItemCell.swift */,
+				D48A67101CE4F340002E362E /* NewsArticlesView.xib */,
+				D48A67141CE5F632002E362E /* GameNewsArticleCell.xib */,
+				D48A67161CE5F6DB002E362E /* NewsArticleCell.swift */,
+				D48A671A1CE60204002E362E /* WebURLView.xib */,
+				D43A179A1CE8066100D31217 /* MediaView.xib */,
+				D409F5B11CE839E100EA5025 /* MediaViewCell.xib */,
+				D409F5B51CE83ED200EA5025 /* MediaViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -231,11 +269,12 @@
 		D48A66FD1CBFFA6B002E362E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D48A67121CE502FB002E362E /* NewsArticlesViewController.swift */,
 				D48A66C41CBFF34F002E362E /* TrackedGamesController.swift */,
-				D48A670C1CE37B00002E362E /* GameInfoViewController.swift */,
 				D48A67001CC008DF002E362E /* UserTrackedGamesCntrl.swift */,
+				D48A670C1CE37B00002E362E /* GameInfoViewController.swift */,
+				D48A67121CE502FB002E362E /* NewsArticlesViewController.swift */,
 				D48A67181CE60173002E362E /* WebViewController.swift */,
+				D43A179C1CE8072F00D31217 /* MediaViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -247,9 +286,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D48A66E91CBFF350002E362E /* Build configuration list for PBXNativeTarget "UpcomingGamesiOS" */;
 			buildPhases = (
+				79A73297BF49D902EC0D7768 /* 📦 Check Pods Manifest.lock */,
 				D48A66BB1CBFF34F002E362E /* Sources */,
 				D48A66BC1CBFF34F002E362E /* Frameworks */,
 				D48A66BD1CBFF34F002E362E /* Resources */,
+				5C56B276C07544167D799799 /* 📦 Embed Pods Frameworks */,
+				B1A9CEA43F8E1FD97BED2A5A /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -308,6 +350,7 @@
 				TargetAttributes = {
 					D48A66BE1CBFF34F002E362E = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 98BVQ4EAEV;
 					};
 					D48A66D41CBFF350002E362E = {
 						CreatedOnToolsVersion = 7.3;
@@ -345,9 +388,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D48A67111CE4F340002E362E /* NewsArticlesView.xib in Resources */,
+				D409F5B21CE839E100EA5025 /* MediaViewCell.xib in Resources */,
 				D48A66FB1CBFF9B5002E362E /* TrackedGamesListItem.xib in Resources */,
 				D48A670B1CD1C43B002E362E /* TrackedGameView.xib in Resources */,
 				D48A671B1CE60204002E362E /* WebURLView.xib in Resources */,
+				D43A179B1CE8066100D31217 /* MediaView.xib in Resources */,
 				D48A67151CE5F632002E362E /* GameNewsArticleCell.xib in Resources */,
 				D48A66CF1CBFF350002E362E /* LaunchScreen.storyboard in Resources */,
 				D48A66CC1CBFF350002E362E /* Assets.xcassets in Resources */,
@@ -371,18 +416,69 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5C56B276C07544167D799799 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UpcomingGamesiOS/Pods-UpcomingGamesiOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		79A73297BF49D902EC0D7768 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B1A9CEA43F8E1FD97BED2A5A /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UpcomingGamesiOS/Pods-UpcomingGamesiOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D48A66BB1CBFF34F002E362E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D48A67051CC01825002E362E /* TrackedGameItem.swift in Sources */,
+				D43A179D1CE8072F00D31217 /* MediaViewController.swift in Sources */,
 				D48A66C71CBFF34F002E362E /* SecondViewController.swift in Sources */,
 				D48A670F1CE4CA32002E362E /* NewsArticleItem.swift in Sources */,
 				D48A67031CC01416002E362E /* httpRequestManager.swift in Sources */,
 				D48A66C31CBFF34F002E362E /* AppDelegate.swift in Sources */,
 				D48A670D1CE37B00002E362E /* GameInfoViewController.swift in Sources */,
+				D43A179F1CE8099F00D31217 /* GameMediaItem.swift in Sources */,
 				D48A67071CC037BF002E362E /* UserDataManager.swift in Sources */,
+				D409F5B61CE83ED200EA5025 /* MediaViewCell.swift in Sources */,
 				D48A66C51CBFF34F002E362E /* TrackedGamesController.swift in Sources */,
 				D48A67171CE5F6DB002E362E /* NewsArticleCell.swift in Sources */,
 				D48A67131CE502FB002E362E /* NewsArticlesViewController.swift in Sources */,
@@ -529,24 +625,32 @@
 		};
 		D48A66EA1CBFF350002E362E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 469850041B4EAA695B99E528 /* Pods-UpcomingGamesiOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = UpcomingGamesiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JosephCruz.UpcomingGamesiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		D48A66EB1CBFF350002E362E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB43D463A9D60A26D9BD0ED2 /* Pods-UpcomingGamesiOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = UpcomingGamesiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JosephCruz.UpcomingGamesiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -616,6 +720,7 @@
 				D48A66EB1CBFF350002E362E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D48A66EC1CBFF350002E362E /* Build configuration list for PBXNativeTarget "UpcomingGamesiOSTests" */ = {
 			isa = XCConfigurationList;
@@ -624,6 +729,7 @@
 				D48A66EE1CBFF350002E362E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D48A66EF1CBFF350002E362E /* Build configuration list for PBXNativeTarget "UpcomingGamesiOSUITests" */ = {
 			isa = XCConfigurationList;
@@ -632,6 +738,7 @@
 				D48A66F11CBFF350002E362E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

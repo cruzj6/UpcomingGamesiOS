@@ -26,6 +26,16 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8GO-S8-XJ2">
+                    <rect key="frame" x="96" y="0.0" width="107" height="98"/>
+                    <color key="backgroundColor" red="0.2901960784" green="0.4431372549" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="98" id="EZd-gc-1JP"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <accessibility key="accessibilityConfiguration" identifier="Cell">
@@ -36,13 +46,17 @@
                 <constraint firstAttribute="bottom" secondItem="9x6-g5-Lge" secondAttribute="bottom" id="35R-u5-lOe"/>
                 <constraint firstItem="9x6-g5-Lge" firstAttribute="top" secondItem="efb-gv-n9H" secondAttribute="bottom" constant="8" id="5Lr-QH-hkE"/>
                 <constraint firstAttribute="trailing" secondItem="9x6-g5-Lge" secondAttribute="trailing" id="IwG-xQ-pSc"/>
+                <constraint firstItem="8GO-S8-XJ2" firstAttribute="leading" secondItem="efb-gv-n9H" secondAttribute="trailing" constant="8" symbolic="YES" id="XQz-5B-hXS"/>
                 <constraint firstItem="9x6-g5-Lge" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="YIP-Ml-HCl"/>
                 <constraint firstItem="efb-gv-n9H" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" id="lLA-63-CeU"/>
+                <constraint firstAttribute="trailing" secondItem="8GO-S8-XJ2" secondAttribute="trailing" id="lSB-9Q-3Ht"/>
+                <constraint firstItem="8GO-S8-XJ2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="vbD-mz-KxH"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="gameImageView" destination="efb-gv-n9H" id="7aA-Xd-R6T"/>
                 <outlet property="gameTitle" destination="9x6-g5-Lge" id="fIl-Uf-Xx9"/>
+                <outlet property="releaseDateLabel" destination="8GO-S8-XJ2" id="NNA-TI-Bg9"/>
             </connections>
             <point key="canvasLocation" x="64.5" y="462.5"/>
         </view>

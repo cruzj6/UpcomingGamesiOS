@@ -8,34 +8,42 @@
 
 import UIKit
 
-class GameInfoViewController: UIViewController {
+class GameInfoViewController: UIViewController, UIScrollViewDelegate {
     
+    @IBOutlet weak var segmentSelector: UISegmentedControl!
+    @IBOutlet weak var pageDots: UIPageControl!
     @IBOutlet weak var gameImageView: UIImageView!
     @IBOutlet weak var gameTitleLabel: UILabel!
     @IBOutlet weak var gameInfoScrollView: UIScrollView!
     var curGameItem : TrackedGameItem?
     var scrollViewWidth : CGFloat?
     var scrollViewHeight : CGFloat?
-    
-    //Need to keep this strong so it doesn't get released
-    let newsViewController : NewsArticlesViewController = NewsArticlesViewController(nibname: "NewsArticlesView")
+    var newsViewController : NewsArticlesViewController!
+    var mediaViewController : MediaViewController!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
+        //Need to keep this strong so it doesn't get released
+        newsViewController = NewsArticlesViewController(nibname: "NewsArticlesView", ownerVC: self)
+        mediaViewController = MediaViewController(nibName: "MediaView", bundle: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        gameInfoScrollView.delegate = self
         //Set up the scroll view for paging
-        gameInfoScrollView.frame = CGRectMake(gameInfoScrollView.frame.minX, gameInfoScrollView.frame.minY, self.view.frame.width, gameInfoScrollView.frame.height);
-        gameInfoScrollView.contentSize = CGSizeMake(gameInfoScrollView.frame.width * 2, gameInfoScrollView.frame.height)
-        
-        scrollViewWidth = gameInfoScrollView.frame.width
-        scrollViewHeight = gameInfoScrollView.frame.height
+       // gameInfoScrollView.frame = CGRectMake(gameInfoScrollView.frame.minX, gameInfoScrollView.frame.minY, self.view.frame.width, gameInfoScrollView.frame.maxX - gameInfoScrollView.frame.minX);
         
         // Do any additional setup after loading the view.
-        loadGameInfo();
+    }
+    
+    override func viewDidAppear(animated: Bool)
+    {
+        super.viewDidAppear(animated)
+        gameInfoScrollView.contentSize = CGSizeMake(gameInfoScrollView.frame.width * 2, gameInfoScrollView.frame.width)
+         loadGameInfo();
     }
     
     override func didReceiveMemoryWarning() {
@@ -69,6 +77,14 @@ class GameInfoViewController: UIViewController {
         let reqManager = httpRequestManager.instance
         
 
+        //Get the loading wheel going for news
+        let loadingViewNews = UIActivityIndicatorView();
+        loadingViewNews.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray;
+        loadingViewNews.center = CGPointMake(self.gameInfoScrollView.frame.width/2, self.gameInfoScrollView.frame.height/2)
+        loadingViewNews.hidesWhenStopped = true;
+        self.gameInfoScrollView.addSubview(loadingViewNews);
+        loadingViewNews.startAnimating();
+        
         reqManager.requestArticlesForGame((curGameItem?.getTitle())! ,
             handleGameArticles: {(newsItems: [NewsArticleItem]) in
                 
@@ -76,14 +92,64 @@ class GameInfoViewController: UIViewController {
                 dispatch_async(dispatch_get_main_queue(),{
                     
                     //Add first page (news view)
-                    self.newsViewController.view.frame = CGRectMake(0, 0, self.scrollViewWidth!, self.scrollViewHeight!)
+                    self.newsViewController.view.frame = CGRectMake(0, 0, self.gameInfoScrollView.frame.width, self.gameInfoScrollView.frame.height)
                     self.newsViewController.loadViewIfNeeded()
                     self.newsViewController.setNewsArts(newsItems)
 
+                    loadingViewNews.stopAnimating();
+                    
                     self.gameInfoScrollView.addSubview(self.newsViewController.view)
                 })
 
         })
+        
+        //Get the loading wheel going for media
+        let loadingViewMedia = UIActivityIndicatorView();
+        loadingViewMedia.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray;
+        loadingViewMedia.center = CGPointMake(self.gameInfoScrollView.frame.width + self.gameInfoScrollView.frame.width/2, self.gameInfoScrollView.frame.height/2)
+        loadingViewMedia.hidesWhenStopped = true;
+        self.gameInfoScrollView.addSubview(loadingViewMedia);
+        loadingViewMedia.startAnimating();
+
+        
+        reqManager.requestMediaForGame((curGameItem?.getTitle())!, handleGameMedia: {(mediaItems: [GameMediaItem]) in
+            
+            //ASync on UI Thread
+            dispatch_async(dispatch_get_main_queue(), {
+                self.mediaViewController.view.frame = CGRectMake(self.gameInfoScrollView.frame.width, 0, self.gameInfoScrollView.frame.width, self.gameInfoScrollView.frame.height)
+                self.mediaViewController.loadViewIfNeeded()
+                
+                loadingViewMedia.stopAnimating()
+                
+                self.gameInfoScrollView.addSubview(self.mediaViewController.view)
+            })
+        
+        })
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        
+        if(scrollView.contentOffset.x > scrollView.frame.width/2)
+        {
+            segmentSelector.selectedSegmentIndex = 1
+            pageDots.currentPage = 1
+        }
+        else{
+            segmentSelector.selectedSegmentIndex = 0
+            pageDots.currentPage = 0
+        }
+    }
+    
+    @IBAction func sectionSelectionChanged(sender: AnyObject) {
+        let selector = sender as! UISegmentedControl
+        if(selector.selectedSegmentIndex == 1)
+        {
+            self.gameInfoScrollView.contentOffset.x = self.gameInfoScrollView.frame.width
+        }
+        else
+        {
+            self.gameInfoScrollView.contentOffset.x = 0
+        }
     }
     
   }
