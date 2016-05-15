@@ -3,11 +3,12 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MediaViewController" customModule="UpcomingGamesiOS" customModuleProvider="target">
             <connections>
-                <outlet property="mediaCollectionView" destination="FlT-Ms-1FW" id="Nae-Kj-LXN"/>
+                <outlet property="mediaScrollView" destination="nqn-hI-NWh" id="sFq-dq-rMI"/>
                 <outlet property="view" destination="iN0-l3-epB" id="cmm-zh-0Gw"/>
             </connections>
         </placeholder>
@@ -16,17 +17,17 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="FlT-Ms-1FW">
-                    <rect key="frame" x="8" y="8" width="584" height="584"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eXL-zn-dOY">
-                        <size key="itemSize" width="50" height="50"/>
-                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    </collectionViewFlowLayout>
-                </collectionView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nqn-hI-NWh">
+                    <rect key="frame" x="8" y="8" width="600" height="600"/>
+                </scrollView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="nqn-hI-NWh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="59R-Hi-FVw"/>
+                <constraint firstItem="nqn-hI-NWh" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="SGY-BU-l1Z"/>
+                <constraint firstItem="nqn-hI-NWh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" id="Xpf-0A-7kb"/>
+                <constraint firstItem="nqn-hI-NWh" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="gpd-Js-l0l"/>
+            </constraints>
         </view>
     </objects>
 </document>

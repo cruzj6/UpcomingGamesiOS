@@ -19,14 +19,13 @@ class GameInfoViewController: UIViewController, UIScrollViewDelegate {
     var scrollViewWidth : CGFloat?
     var scrollViewHeight : CGFloat?
     var newsViewController : NewsArticlesViewController!
-    var mediaViewController : MediaViewController!
+    var mediaViewController : MediaViewController?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         //Need to keep this strong so it doesn't get released
         newsViewController = NewsArticlesViewController(nibname: "NewsArticlesView", ownerVC: self)
-        mediaViewController = MediaViewController(nibName: "MediaView", bundle: nil)
     }
     
     override func viewDidLoad() {
@@ -111,17 +110,22 @@ class GameInfoViewController: UIViewController, UIScrollViewDelegate {
         self.gameInfoScrollView.addSubview(loadingViewMedia);
         loadingViewMedia.startAnimating();
 
-        
         reqManager.requestMediaForGame((curGameItem?.getTitle())!, handleGameMedia: {(mediaItems: [GameMediaItem]) in
             
             //ASync on UI Thread
             dispatch_async(dispatch_get_main_queue(), {
-                self.mediaViewController.view.frame = CGRectMake(self.gameInfoScrollView.frame.width, 0, self.gameInfoScrollView.frame.width, self.gameInfoScrollView.frame.height)
-                self.mediaViewController.loadViewIfNeeded()
+                
+                //Create VC from the nib
+                self.mediaViewController = MediaViewController(nibName: "MediaView", mediaData: mediaItems)
+                
+                self.mediaViewController!.view.frame = CGRectMake(self.gameInfoScrollView.frame.width, 0, self.gameInfoScrollView.frame.width, self.gameInfoScrollView.frame.height)
+                self.mediaViewController!.loadViewIfNeeded()
                 
                 loadingViewMedia.stopAnimating()
                 
-                self.gameInfoScrollView.addSubview(self.mediaViewController.view)
+                self.gameInfoScrollView.addSubview(self.mediaViewController!.view)
+                self.mediaViewController?.loadView()
+                self.mediaViewController?.loadMediaCells()
             })
         
         })

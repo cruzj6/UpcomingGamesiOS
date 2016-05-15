@@ -10,12 +10,35 @@ import UIKit
 import AVKit
 import AVFoundation
 
-class MediaViewController: UIViewController, UIWebViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
-    @IBOutlet var mediaCollectionView: UICollectionView!
+class MediaViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate {
+    @IBOutlet var mediaScrollView: UIScrollView!
+    var mediaItems : [GameMediaItem]!
+    
+    init(nibName: String, mediaData: [GameMediaItem])
+    {
+        super.init(nibName: nibName, bundle: nil)
+        
+        //Pluck out the youtube media items from the collection
+        var ytMediaItems : [GameMediaItem] = [GameMediaItem]()
+        for i in 0...(mediaData.count - 1)
+        {
+            //Check if it is a youtube url, if so add it
+            if(mediaData[i].getURL().containsString("youtube.com"))
+            {
+                ytMediaItems.append(mediaData[i])
+            }
+        }
+        
+        //Just the youtube videos for now
+        self.mediaItems = ytMediaItems
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        mediaCollectionView.registerNib(UINib(nibName: "MediaViewCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
      }
 
     override func didReceiveMemoryWarning() {
@@ -25,40 +48,39 @@ class MediaViewController: UIViewController, UIWebViewDelegate, UICollectionView
     }
     
     override func viewDidAppear(animated: Bool) {
-        mediaCollectionView.delegate = self
-        mediaCollectionView.dataSource = self
+        mediaScrollView.contentSize = CGSizeMake(mediaScrollView.frame.width, mediaScrollView.frame.height/2 * CGFloat(Double(mediaItems.count)))
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
-    }
-    
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        UIApplication.sharedApplication().openURL(NSURL(string: "http://www.youtube.com/watch?v=hMmLWhSVUvY")!)
+    func scrollViewDidScroll(scrollView: UIScrollView) {
 
     }
     
-    //Set the size of each cell
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize{
-        return CGSizeMake(mediaCollectionView.bounds.width, mediaCollectionView.bounds.height/2);
-    }
-    
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func loadMediaCells()
+    {
+        for i in 0...(mediaItems.count - 1)
+        {
+            //Create our cell for the media item
+            let theCell : MediaViewCell = NSBundle.mainBundle().loadNibNamed("MediaViewCell", owner: self, options: nil).first as! MediaViewCell
         
-        let theCell : MediaViewCell = mediaCollectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! MediaViewCell
+            theCell.ytWebView.delegate = self
+            
+            //Build frame for the item, putting it next in the scroll view
+            theCell.frame = CGRectMake(0, mediaScrollView.frame.height/2 * CGFloat(i), mediaScrollView.frame.width, mediaScrollView.frame.height/2)
         
-        theCell.ytWebView.delegate = self
-        
-        //TODO: PH
-        let videoId = "Rg6GLVUnnpM"
-        let videoTitle = "TESTING!!!"
-        
-        theCell.ytWebView.allowsInlineMediaPlayback = true
-        theCell.ytWebView.loadHTMLString("<iframe width=\"\(theCell.ytWebView.frame.width)\" height=\"\(theCell.ytWebView.frame.height)\" src=\"https://www.youtube.com/embed/\(videoId)\" frameborder=\"0\" allowfullscreen></iframe>", baseURL: nil)
-        
-        theCell.videoTitleLabel.text = videoTitle
-
-        return theCell
+            //Get the id and tite of the video
+            //Get rid of everything in the URL except for the ID
+            let videoId = mediaItems[i].getURL().stringByReplacingOccurrencesOfString("https://www.youtube.com/watch?v=", withString: "")
+            let videoTitle = mediaItems[i].getTitle()
+            theCell.videoTitleLabel.text = videoTitle
+            
+            //Set up the webView for showing the embedded youtube video
+            theCell.ytWebView.scrollView.scrollEnabled = false
+            theCell.ytWebView.allowsInlineMediaPlayback = true
+            theCell.ytWebView.loadHTMLString("<iframe style=\"width: 100%\"src=\"https://www.youtube.com/embed/\(videoId)?&playsinline=1\" frameborder=\"0\" allowfullscreen></iframe>", baseURL: nil)
+            
+            //Push it to the scroll view
+            mediaScrollView.addSubview(theCell)
+        }
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {

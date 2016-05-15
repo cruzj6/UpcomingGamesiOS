@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MediaViewCell: UICollectionViewCell{
+class MediaViewCell: UIView{
 
     @IBOutlet var videoTitleLabel: UILabel!
     @IBOutlet var ytWebView: UIWebView!
@@ -19,5 +19,5 @@ class MediaViewCell: UICollectionViewCell{
         // Drawing code
     }
     */
-
+    
 }

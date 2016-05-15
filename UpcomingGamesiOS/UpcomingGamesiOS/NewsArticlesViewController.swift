@@ -53,13 +53,13 @@ class NewsArticlesViewController: UIViewController, UITableViewDataSource, UITab
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let theNewsItem = newsArtItems[indexPath.row]
-        var urlString = theNewsItem.getURLString()
+        let urlString = theNewsItem.getURLString()
         //urlString = urlString.stringByReplacingOccurrencesOfString("http", withString: "https")
         
         let webViewController = WebViewController(nibName: "WebURLView", bundle: nil)
         webViewController.setURLToLoad(urlString)
         
-        var presentingVC : UIViewController! = ownerVC == nil ? self : ownerVC
+        let presentingVC : UIViewController! = ownerVC == nil ? self : ownerVC
         
         presentingVC.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
         // Cover Vertical is necessary for CurrentContext

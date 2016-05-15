@@ -23,8 +23,8 @@
                         <barButtonItem title="Item" id="CbF-QG-wj8"/>
                     </items>
                 </toolbar>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2d8-9h-dUB">
-                    <rect key="frame" x="8" y="22" width="46" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2d8-9h-dUB">
+                    <rect key="frame" x="8" y="22" width="39" height="30"/>
                     <state key="normal" title="Close"/>
                     <connections>
                         <action selector="closeClick:" destination="-1" eventType="touchUpInside" id="Hdl-Ks-Ju1"/>

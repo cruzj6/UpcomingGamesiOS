@@ -21,7 +21,7 @@ class WebViewController: UIViewController, NSURLConnectionDelegate {
         if(urlToLoad != nil)
         {
             let urlRequest = NSURLRequest(URL: NSURL(string: (urlToLoad)!)!)
-            let urlConnection = NSURLConnection(request: urlRequest, delegate: self)
+            _ = NSURLConnection(request: urlRequest, delegate: self)
             webView.loadRequest(urlRequest)
         }
     }

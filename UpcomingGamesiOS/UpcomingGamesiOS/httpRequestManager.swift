@@ -12,7 +12,7 @@ class httpRequestManager : NSObject{
     static let instance = httpRequestManager();
     var baseURL = "https://upcominggames.herokuapp.com";
     
-    //TODO: Temporary user id, test with knows until auth
+    //TODO: Temporary user id, test with known until auth
     var userid = "76561198032119238";
     
     override init()

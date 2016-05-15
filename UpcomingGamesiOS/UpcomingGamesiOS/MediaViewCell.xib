@@ -28,8 +28,7 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="fT2-Zg-48W" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="28" id="Akj-5d-5EA"/>
-                <constraint firstItem="agh-zo-PtB" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottomMargin" id="Q3E-PO-MS1"/>
+                <constraint firstItem="agh-zo-PtB" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottomMargin" id="OmO-vL-B9L"/>
                 <constraint firstItem="agh-zo-PtB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="REu-XD-oc7"/>
                 <constraint firstItem="agh-zo-PtB" firstAttribute="top" secondItem="fT2-Zg-48W" secondAttribute="bottom" constant="17" id="b6Q-ey-mQn"/>
                 <constraint firstItem="agh-zo-PtB" firstAttribute="leading" secondItem="fT2-Zg-48W" secondAttribute="leading" id="foo-Ro-NMd"/>
