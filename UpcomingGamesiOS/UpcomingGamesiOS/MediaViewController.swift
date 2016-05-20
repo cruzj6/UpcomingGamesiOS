@@ -13,6 +13,7 @@ import AVFoundation
 class MediaViewController: UIViewController, UIWebViewDelegate, UIScrollViewDelegate {
     @IBOutlet var mediaScrollView: UIScrollView!
     var mediaItems : [GameMediaItem]!
+    var numToShow : Int!
     
     init(nibName: String, mediaData: [GameMediaItem])
     {
@@ -20,17 +21,12 @@ class MediaViewController: UIViewController, UIWebViewDelegate, UIScrollViewDele
         
         //Pluck out the youtube media items from the collection
         var ytMediaItems : [GameMediaItem] = [GameMediaItem]()
-        for i in 0...(mediaData.count - 1)
-        {
-            //Check if it is a youtube url, if so add it
-            if(mediaData[i].getURL().containsString("youtube.com"))
-            {
-                ytMediaItems.append(mediaData[i])
-            }
-        }
+        ytMediaItems = mediaData.filter{ $0.getURL().containsString("youtube.com") }
         
         //Just the youtube videos for now
         self.mediaItems = ytMediaItems
+        self.numToShow = mediaItems.count > 10 ? 10 : mediaItems.count
+
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -39,6 +35,7 @@ class MediaViewController: UIViewController, UIWebViewDelegate, UIScrollViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
      }
 
     override func didReceiveMemoryWarning() {
@@ -48,7 +45,8 @@ class MediaViewController: UIViewController, UIWebViewDelegate, UIScrollViewDele
     }
     
     override func viewDidAppear(animated: Bool) {
-        mediaScrollView.contentSize = CGSizeMake(mediaScrollView.frame.width, mediaScrollView.frame.height/2 * CGFloat(Double(mediaItems.count)))
+        mediaScrollView.contentSize = CGSizeMake(mediaScrollView.frame.width, mediaScrollView.frame.height/2 * CGFloat(numToShow))
+        loadMediaCells()
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
@@ -57,16 +55,13 @@ class MediaViewController: UIViewController, UIWebViewDelegate, UIScrollViewDele
     
     func loadMediaCells()
     {
-        for i in 0...(mediaItems.count - 1)
+        for i in 0...(numToShow - 1)
         {
             //Create our cell for the media item
             let theCell : MediaViewCell = NSBundle.mainBundle().loadNibNamed("MediaViewCell", owner: self, options: nil).first as! MediaViewCell
         
             theCell.ytWebView.delegate = self
             
-            //Build frame for the item, putting it next in the scroll view
-            theCell.frame = CGRectMake(0, mediaScrollView.frame.height/2 * CGFloat(i), mediaScrollView.frame.width, mediaScrollView.frame.height/2)
-        
             //Get the id and tite of the video
             //Get rid of everything in the URL except for the ID
             let videoId = mediaItems[i].getURL().stringByReplacingOccurrencesOfString("https://www.youtube.com/watch?v=", withString: "")
@@ -76,10 +71,16 @@ class MediaViewController: UIViewController, UIWebViewDelegate, UIScrollViewDele
             //Set up the webView for showing the embedded youtube video
             theCell.ytWebView.scrollView.scrollEnabled = false
             theCell.ytWebView.allowsInlineMediaPlayback = true
-            theCell.ytWebView.loadHTMLString("<iframe style=\"width: 100%\"src=\"https://www.youtube.com/embed/\(videoId)?&playsinline=1\" frameborder=\"0\" allowfullscreen></iframe>", baseURL: nil)
-            
+            theCell.ytWebView.loadHTMLString("<iframe src=\"https://www.youtube.com/embed/\(videoId)?&playsinline=1\" frameborder=\"0\" allowfullscreen></iframe>", baseURL: nil)
+
+            //Build frame for the item, putting it next in the scroll view
+            let frame = CGRectMake(0, mediaScrollView.frame.height/2 * CGFloat(i), mediaScrollView.frame.width, mediaScrollView.frame.height/2)
+            theCell.frame = frame
+        
             //Push it to the scroll view
             mediaScrollView.addSubview(theCell)
+            mediaScrollView.didAddSubview(theCell)
+
         }
     }
     

@@ -24,6 +24,8 @@ class TrackedGameItems: UIView{
         //Custom delegate and data source for cells and click events
         trackedGamesList.dataSource = userGameDataDel;
         trackedGamesList.delegate = userGameDataDel;
+        
+        trackedGamesList.reloadData()
     }
     
 }

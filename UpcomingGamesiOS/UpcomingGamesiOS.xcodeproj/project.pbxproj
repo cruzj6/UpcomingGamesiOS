@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		D409F5B21CE839E100EA5025 /* MediaViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D409F5B11CE839E100EA5025 /* MediaViewCell.xib */; };
 		D409F5B61CE83ED200EA5025 /* MediaViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D409F5B51CE83ED200EA5025 /* MediaViewCell.swift */; };
+		D409F5B81CEA169D00EA5025 /* ServerLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D409F5B71CEA169D00EA5025 /* ServerLoginViewController.swift */; };
 		D43A179B1CE8066100D31217 /* MediaView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D43A179A1CE8066100D31217 /* MediaView.xib */; };
 		D43A179D1CE8072F00D31217 /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43A179C1CE8072F00D31217 /* MediaViewController.swift */; };
 		D43A179F1CE8099F00D31217 /* GameMediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43A179E1CE8099F00D31217 /* GameMediaItem.swift */; };
 		D48A66C31CBFF34F002E362E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A66C21CBFF34F002E362E /* AppDelegate.swift */; };
 		D48A66C51CBFF34F002E362E /* TrackedGamesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A66C41CBFF34F002E362E /* TrackedGamesController.swift */; };
-		D48A66C71CBFF34F002E362E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A66C61CBFF34F002E362E /* SecondViewController.swift */; };
+		D48A66C71CBFF34F002E362E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A66C61CBFF34F002E362E /* SearchViewController.swift */; };
 		D48A66CA1CBFF34F002E362E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D48A66C81CBFF34F002E362E /* Main.storyboard */; };
 		D48A66CC1CBFF350002E362E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D48A66CB1CBFF350002E362E /* Assets.xcassets */; };
 		D48A66CF1CBFF350002E362E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D48A66CD1CBFF350002E362E /* LaunchScreen.storyboard */; };
@@ -61,13 +62,14 @@
 		C658F6BE16A3A900EED5A7B9 /* Pods_UpcomingGamesiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UpcomingGamesiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D409F5B11CE839E100EA5025 /* MediaViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MediaViewCell.xib; sourceTree = "<group>"; };
 		D409F5B51CE83ED200EA5025 /* MediaViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaViewCell.swift; sourceTree = "<group>"; };
+		D409F5B71CEA169D00EA5025 /* ServerLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerLoginViewController.swift; sourceTree = "<group>"; };
 		D43A179A1CE8066100D31217 /* MediaView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MediaView.xib; sourceTree = "<group>"; };
 		D43A179C1CE8072F00D31217 /* MediaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
 		D43A179E1CE8099F00D31217 /* GameMediaItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMediaItem.swift; sourceTree = "<group>"; };
 		D48A66BF1CBFF34F002E362E /* UpcomingGamesiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UpcomingGamesiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D48A66C21CBFF34F002E362E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D48A66C41CBFF34F002E362E /* TrackedGamesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackedGamesController.swift; sourceTree = "<group>"; };
-		D48A66C61CBFF34F002E362E /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		D48A66C61CBFF34F002E362E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		D48A66C91CBFF34F002E362E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D48A66CB1CBFF350002E362E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D48A66CE1CBFF350002E362E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -209,7 +211,6 @@
 		D48A66F31CBFF3A6002E362E /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				D48A66C61CBFF34F002E362E /* SecondViewController.swift */,
 				D48A66F71CBFF724002E362E /* TopTab */,
 				D48A66F61CBFF70E002E362E /* TrackedGames */,
 			);
@@ -269,12 +270,14 @@
 		D48A66FD1CBFFA6B002E362E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D48A66C61CBFF34F002E362E /* SearchViewController.swift */,
 				D48A66C41CBFF34F002E362E /* TrackedGamesController.swift */,
 				D48A67001CC008DF002E362E /* UserTrackedGamesCntrl.swift */,
 				D48A670C1CE37B00002E362E /* GameInfoViewController.swift */,
 				D48A67121CE502FB002E362E /* NewsArticlesViewController.swift */,
 				D48A67181CE60173002E362E /* WebViewController.swift */,
 				D43A179C1CE8072F00D31217 /* MediaViewController.swift */,
+				D409F5B71CEA169D00EA5025 /* ServerLoginViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -471,7 +474,7 @@
 			files = (
 				D48A67051CC01825002E362E /* TrackedGameItem.swift in Sources */,
 				D43A179D1CE8072F00D31217 /* MediaViewController.swift in Sources */,
-				D48A66C71CBFF34F002E362E /* SecondViewController.swift in Sources */,
+				D48A66C71CBFF34F002E362E /* SearchViewController.swift in Sources */,
 				D48A670F1CE4CA32002E362E /* NewsArticleItem.swift in Sources */,
 				D48A67031CC01416002E362E /* httpRequestManager.swift in Sources */,
 				D48A66C31CBFF34F002E362E /* AppDelegate.swift in Sources */,
@@ -480,6 +483,7 @@
 				D48A67071CC037BF002E362E /* UserDataManager.swift in Sources */,
 				D409F5B61CE83ED200EA5025 /* MediaViewCell.swift in Sources */,
 				D48A66C51CBFF34F002E362E /* TrackedGamesController.swift in Sources */,
+				D409F5B81CEA169D00EA5025 /* ServerLoginViewController.swift in Sources */,
 				D48A67171CE5F6DB002E362E /* NewsArticleCell.swift in Sources */,
 				D48A67131CE502FB002E362E /* NewsArticlesViewController.swift in Sources */,
 				D48A67091CCAED7B002E362E /* TrackedGamesListItemCell.swift in Sources */,

@@ -18,15 +18,18 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nqn-hI-NWh">
-                    <rect key="frame" x="8" y="8" width="600" height="600"/>
+                    <rect key="frame" x="8" y="8" width="584" height="584"/>
                 </scrollView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="nqn-hI-NWh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="59R-Hi-FVw"/>
-                <constraint firstItem="nqn-hI-NWh" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="SGY-BU-l1Z"/>
-                <constraint firstItem="nqn-hI-NWh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" id="Xpf-0A-7kb"/>
-                <constraint firstItem="nqn-hI-NWh" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="gpd-Js-l0l"/>
+                <constraint firstItem="nqn-hI-NWh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="4wJ-Hi-S8e"/>
+                <constraint firstItem="nqn-hI-NWh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="DPO-QZ-Plv"/>
+                <constraint firstItem="nqn-hI-NWh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="fMi-h9-6kz"/>
+                <constraint firstItem="nqn-hI-NWh" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="jqY-5F-qZp"/>
+                <constraint firstAttribute="bottom" secondItem="nqn-hI-NWh" secondAttribute="bottom" constant="8" id="lfu-bK-lL6"/>
+                <constraint firstAttribute="trailing" secondItem="nqn-hI-NWh" secondAttribute="trailing" constant="8" id="pb4-dx-Whp"/>
+                <constraint firstItem="nqn-hI-NWh" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="pqW-Er-Sde"/>
             </constraints>
         </view>
     </objects>

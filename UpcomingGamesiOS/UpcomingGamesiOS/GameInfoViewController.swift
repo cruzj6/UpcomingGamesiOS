@@ -115,17 +115,15 @@ class GameInfoViewController: UIViewController, UIScrollViewDelegate {
             //ASync on UI Thread
             dispatch_async(dispatch_get_main_queue(), {
                 
+                loadingViewMedia.stopAnimating()
+                
                 //Create VC from the nib
                 self.mediaViewController = MediaViewController(nibName: "MediaView", mediaData: mediaItems)
                 
                 self.mediaViewController!.view.frame = CGRectMake(self.gameInfoScrollView.frame.width, 0, self.gameInfoScrollView.frame.width, self.gameInfoScrollView.frame.height)
-                self.mediaViewController!.loadViewIfNeeded()
-                
-                loadingViewMedia.stopAnimating()
+                //self.mediaViewController!.loadViewIfNeeded()
                 
                 self.gameInfoScrollView.addSubview(self.mediaViewController!.view)
-                self.mediaViewController?.loadView()
-                self.mediaViewController?.loadMediaCells()
             })
         
         })

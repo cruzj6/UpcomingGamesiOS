@@ -12,9 +12,6 @@ class httpRequestManager : NSObject{
     static let instance = httpRequestManager();
     var baseURL = "https://upcominggames.herokuapp.com";
     
-    //TODO: Temporary user id, test with known until auth
-    var userid = "76561198032119238";
-    
     override init()
     {
         
@@ -107,60 +104,137 @@ class httpRequestManager : NSObject{
     
     func buildUserTrackedGames(trackedGameDataHandler: ([TrackedGameItem]) -> ())
     {
-        let reqString = baseURL + "/userdata/aUsersTrackedGames?id=" + userid;
+        let reqString = baseURL + "/userdata/UserTrackedGames";
         let reqURL = NSURL(string: reqString);
         let urlSession = NSURLSession.sharedSession();
         
         let task = urlSession.dataTaskWithURL(reqURL!, completionHandler: { (data:NSData?, resp: NSURLResponse?, err: NSError?) -> Void in
             
             //If no error getting data
-            if(err == nil){
+            if(err == nil && data != nil){
                 do{
                     //Get the JSON Data object
                     let trackedGamesDataUnsorted = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
                     print(trackedGamesDataUnsorted)
-                    
-                    //Sort the game objects alphabetically
-                    let trackedGamesData = (trackedGamesDataUnsorted as! NSArray).sort{ ($0["name"] as! String) < ($1["name"] as! String)}
-                    
-                    var returnItems = [TrackedGameItem]();
-                    
-                    //Convert the data into TrackedGameItem's
-                    for i in 0...(trackedGamesData.count - 1)
-                    {
-                        let curItem = trackedGamesData[i];
-                        let title = curItem["name"] as! String
-                        let imgurl = curItem["imageLink"] as! String
-                        let gbid = curItem["gbGameId"] as! NSNumber
-                        
-                        //First cast each release date item as an integer
-                        let releaseDay = curItem["releaseDay"] as? Int
-                        let releaseMonth = curItem["releaseMonth"] as? Int
-                        let releaseYear = curItem["releaseYear"] as? Int
-                        
-                        //Now
-                        let releaseMonthString = String(releaseMonth).stringByReplacingOccurrencesOfString("Optional(", withString: "").stringByReplacingOccurrencesOfString(")" ,withString: "")
-                        let releaseDayString = String(releaseDay).stringByReplacingOccurrencesOfString("Optional(", withString: "").stringByReplacingOccurrencesOfString(")" ,withString: "")
-                        let releaseYearString = String(releaseYear).stringByReplacingOccurrencesOfString("Optional(", withString: "").stringByReplacingOccurrencesOfString(")" ,withString: "")
-                        let releaseDate = (releaseMonth >= 0 ? releaseMonthString + "/" : "")  + (releaseDay >= 0 ? releaseDayString + "/" : "") + (releaseYear >= 0 ? releaseYearString : "")
-                        let nextItem = TrackedGameItem(title: title, imgurl: imgurl, gbid: gbid as Int, releaseDate: (releaseDate == "" ? "TBA or Already Released" : releaseDate))
-                        
-                        returnItems.append(nextItem)
-                    }
+                    let returnItems = self.buildTrackedGamesItemsCollection(trackedGamesDataUnsorted)
                     
                     //Callback
                     trackedGameDataHandler(returnItems);
                 }
-                catch{
+                catch
+                {
                     print("Error loading data")
                     trackedGameDataHandler([TrackedGameItem]());
                 }
- 
-                }
-            
+            }
         })
         
         task.resume();
+    }
+    
+    func buildTrackedGamesItemsCollection(trackedGamesDataUnsorted: AnyObject) -> [TrackedGameItem]
+    {
+        //Sort the game objects alphabetically
+        let trackedGamesData = (trackedGamesDataUnsorted as! NSArray).sort{ ($0["name"] as! String) < ($1["name"] as! String)}
+        
+        var returnItems = [TrackedGameItem]();
+        
+        //Convert the data into TrackedGameItem's
+        for i in 0...(trackedGamesData.count - 1)
+        {
+            let curItem = trackedGamesData[i];
+            let title = curItem["name"] as! String
+            let imgurl = curItem["imageLink"] as! String
+            let gbid = curItem["gbGameId"] as! NSNumber
+            
+            //First cast each release date item as an integer
+            let releaseDay = curItem["releaseDay"] as? Int
+            let releaseMonth = curItem["releaseMonth"] as? Int
+            let releaseYear = curItem["releaseYear"] as? Int
+            
+            //Now
+            let releaseMonthString = String(releaseMonth).stringByReplacingOccurrencesOfString("Optional(", withString: "").stringByReplacingOccurrencesOfString(")" ,withString: "")
+            let releaseDayString = String(releaseDay).stringByReplacingOccurrencesOfString("Optional(", withString: "").stringByReplacingOccurrencesOfString(")" ,withString: "")
+            let releaseYearString = String(releaseYear).stringByReplacingOccurrencesOfString("Optional(", withString: "").stringByReplacingOccurrencesOfString(")" ,withString: "")
+            let releaseDate = (releaseMonth >= 0 ? releaseMonthString + "/" : "")  + (releaseDay >= 0 ? releaseDayString + "/" : "") + (releaseYear >= 0 ? releaseYearString : "")
+            let nextItem = TrackedGameItem(title: title, imgurl: imgurl, gbid: gbid as Int, releaseDate: (releaseDate == "" ? "TBA or Already Released" : releaseDate))
+            
+            returnItems.append(nextItem)
+            
+        }
+        return returnItems
+    }
+    func getIsLoggedIn(handleLoginResult: (Bool)-> ())
+    {
+        
+        let reqString = baseURL + "/auth/steam/isLoggedIn"
+        let reqURL = NSURL(string: reqString)
+        let urlSession = NSURLSession.sharedSession()
+        
+        let task = urlSession.dataTaskWithURL(reqURL!, completionHandler: { (data:NSData?, resp: NSURLResponse?, err: NSError?) -> Void in
+            
+            do{
+                //Get the JSON Data object
+                let logInJSON = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
+                //let firstItem = logInJSON.objectAtIndex(0)
+                let result = logInJSON["isIn"] as! Bool
+                handleLoginResult(result)
+            }
+            catch{
+                print("login check failed")
+            }
+
+        })
+        
+        task.resume()
+    }
+    
+    func searchForGames(searchString: String, handleSearchResults: ([TrackedGameItem]) -> ())
+    {
+        let reqString = baseURL + "/info/searchGames?searchTerm=" + searchString.stringByReplacingOccurrencesOfString("\t", withString: " ")
+        let reqURL = NSURL(string: reqString)
+        let urlSession = NSURLSession.sharedSession()
+
+        if(reqURL == nil)
+        {
+            //TODO: This means invalid search
+            handleSearchResults([TrackedGameItem]())
+            return
+        }
+        
+        let task = urlSession.dataTaskWithURL(reqURL!, completionHandler: { (data:NSData?, resp: NSURLResponse?, err: NSError?) -> Void in
+            
+            if(err == nil && data != nil){
+                do{
+                    //Get the JSON Data object
+                    let searchResultsJSON = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
+                    print(searchResultsJSON)
+                
+                    if(searchResultsJSON.count > 0){
+                        let sortedResults = self.buildTrackedGamesItemsCollection(searchResultsJSON)
+                        handleSearchResults(sortedResults)
+                    }
+                    
+                }
+                catch
+                {
+                    print("ERROR: Server or Search Error")
+                    handleSearchResults([TrackedGameItem]())
+                }
+            }
+            else
+            {
+                handleSearchResults([TrackedGameItem]())
+            }
+
+        })
+        
+        if(reqURL != nil){
+            task.resume()
+        }
+        else{
+           handleSearchResults([TrackedGameItem]())
+        }
     }
     
 }

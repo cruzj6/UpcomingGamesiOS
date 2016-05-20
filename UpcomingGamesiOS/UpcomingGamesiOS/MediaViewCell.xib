@@ -3,43 +3,32 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MediaViewCell" customModule="UpcomingGamesiOS" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="476" height="406"/>
+            <rect key="frame" x="0.0" y="0.0" width="485" height="383"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fT2-Zg-48W">
-                    <rect key="frame" x="8" y="28" width="42" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fT2-Zg-48W">
+                    <rect key="frame" x="8" y="2" width="469" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="agh-zo-PtB">
-                    <rect key="frame" x="8" y="66" width="468" height="332"/>
+                <webView autoresizesSubviews="NO" clipsSubviews="YES" contentMode="TopLeft" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="agh-zo-PtB">
+                    <rect key="frame" x="8" y="31" width="468" height="344"/>
                     <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="332" id="jD3-6d-2du"/>
-                    </constraints>
                 </webView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstItem="agh-zo-PtB" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottomMargin" id="OmO-vL-B9L"/>
-                <constraint firstItem="agh-zo-PtB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="REu-XD-oc7"/>
-                <constraint firstItem="agh-zo-PtB" firstAttribute="top" secondItem="fT2-Zg-48W" secondAttribute="bottom" constant="17" id="b6Q-ey-mQn"/>
-                <constraint firstItem="agh-zo-PtB" firstAttribute="leading" secondItem="fT2-Zg-48W" secondAttribute="leading" id="foo-Ro-NMd"/>
-                <constraint firstAttribute="trailing" secondItem="agh-zo-PtB" secondAttribute="trailing" id="id4-7Y-BVc"/>
-            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="videoTitleLabel" destination="fT2-Zg-48W" id="NOB-DU-1lZ"/>
                 <outlet property="ytWebView" destination="agh-zo-PtB" id="X7c-mw-Gha"/>
             </connections>
-            <point key="canvasLocation" x="320" y="445"/>
+            <point key="canvasLocation" x="324.5" y="433.5"/>
         </view>
     </objects>
 </document>
