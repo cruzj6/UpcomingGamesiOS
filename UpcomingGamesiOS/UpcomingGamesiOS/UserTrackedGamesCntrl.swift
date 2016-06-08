@@ -22,18 +22,26 @@ class UserTrackedGamesData : UIViewController, UICollectionViewDataSource, UICol
         
         let curGame = userTrackedGames[indexPath.item];
         
-        //Make the URL secure to make request
-        let unsecureURLString: String = curGame.getImgUrl();
-        let secureURLString = unsecureURLString.stringByReplacingOccurrencesOfString("http", withString: "http", options: NSStringCompareOptions.LiteralSearch, range: nil)
+        //Get game image async
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)){
+            //Make the URL secure to make request
+            let unsecureURLString: String = curGame.getImgUrl();
+            let secureURLString = unsecureURLString.stringByReplacingOccurrencesOfString("http", withString: "http", options: NSStringCompareOptions.LiteralSearch, range: nil)
+            
+            //Create NSURL object for making the request
+            let url = NSURL(string: secureURLString)
+            
+            //Make the request for the image and if we get data set it to image
+            let data = NSData(contentsOfURL: url!);
 
-        //Create NSURL object for making the request
-        let url = NSURL(string: secureURLString)
-        
-        //Make the request for the image and if we get data set it to image
-        let data = NSData(contentsOfURL: url!);
-        if(data != nil){
-            trackedGameCell.gameImageView.image = UIImage(data: data!)
+            dispatch_async(dispatch_get_main_queue())
+            {
+                if(data != nil){
+                    trackedGameCell.gameImageView.image = UIImage(data: data!)
+                }
+            }
         }
+        
         
         //Set the game title
         trackedGameCell.GameName = curGame.getTitle();

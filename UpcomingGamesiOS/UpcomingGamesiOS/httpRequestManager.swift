@@ -189,6 +189,24 @@ class httpRequestManager : NSObject{
         task.resume()
     }
     
+    func addGameToTracked(gameId: String)
+    {
+        //Set up our URL post request
+        let reqString = baseURL + "/userdata/addTrackedGame"
+        let reqURL = NSURL(string: reqString)
+        let postParams = "gameid=" + gameId
+        let urlSession = NSURLSession.sharedSession()
+        let request = NSMutableURLRequest(URL: reqURL!)
+        
+        request.HTTPMethod = "POST"
+        request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        request.HTTPBody = postParams.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        //Make the request
+        let task = urlSession.dataTaskWithRequest(request)
+        task.resume()
+    }
+    
     func searchForGames(searchString: String, handleSearchResults: ([TrackedGameItem]) -> ())
     {
         let reqString = baseURL + "/info/searchGames?searchTerm=" + searchString.stringByReplacingOccurrencesOfString("\t", withString: " ")

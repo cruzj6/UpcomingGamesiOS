@@ -21,6 +21,10 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         super.viewDidLoad()
         curSearchResults = [TrackedGameItem]()
         
+        //Set up table view cells
+        searchResultsTableView.registerNib(UINib(nibName: "SearchGameCell", bundle: nil), forCellReuseIdentifier: "Cell")
+        searchResultsTableView.rowHeight = searchResultsTableView.dequeueReusableCellWithIdentifier("Cell")!.frame.height
+        
         //Set up loading view
         loadingView.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray;
         loadingView.center = self.view.center;
@@ -86,13 +90,46 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = curSearchResults[indexPath.item].getTitle()
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! SearchGameCell
+        let gameItem = curSearchResults[indexPath.row]
+        
+        cell.gameNameLabel.text = curSearchResults[indexPath.item].getTitle()
+        cell.addToTrackedButton.addTarget(self, action: #selector(clickAddGame), forControlEvents: .TouchUpInside)
+        cell.addToTrackedButton.tag = indexPath.row
+        
+        //Get the image async
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            
+            //Make the URL secure to make request
+            let unsecureURLString: String = gameItem.getImgUrl();
+            let secureURLString = unsecureURLString.stringByReplacingOccurrencesOfString("http", withString: "http", options: NSStringCompareOptions.LiteralSearch, range: nil)
+            
+            //Create NSURL object for making the request
+            let url = NSURL(string: secureURLString)
+            
+            //Make the request for the image and if we get data set it to image
+            let data = NSData(contentsOfURL: url!);
+
+            dispatch_async(dispatch_get_main_queue()) {
+                if(data != nil){
+                    cell.gameImageView.image = UIImage(data: data!)
+                }
+            }
+        }
+        
         return cell
+    }
+    
+    func clickAddGame(sender: UIButton)
+    {
+        let index = sender.tag
+        let id = curSearchResults[index].getgbid()
+        httpRequestManager.instance.addGameToTracked(String(id))
     }
 
 }

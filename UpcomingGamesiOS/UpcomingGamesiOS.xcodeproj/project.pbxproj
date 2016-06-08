@@ -13,6 +13,8 @@
 		D43A179B1CE8066100D31217 /* MediaView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D43A179A1CE8066100D31217 /* MediaView.xib */; };
 		D43A179D1CE8072F00D31217 /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43A179C1CE8072F00D31217 /* MediaViewController.swift */; };
 		D43A179F1CE8099F00D31217 /* GameMediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43A179E1CE8099F00D31217 /* GameMediaItem.swift */; };
+		D45A3FAD1D08651600F44397 /* SearchGameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D45A3FAC1D08651600F44397 /* SearchGameCell.xib */; };
+		D45A3FAF1D08656300F44397 /* SearchGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45A3FAE1D08656300F44397 /* SearchGameCell.swift */; };
 		D48A66C31CBFF34F002E362E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A66C21CBFF34F002E362E /* AppDelegate.swift */; };
 		D48A66C51CBFF34F002E362E /* TrackedGamesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A66C41CBFF34F002E362E /* TrackedGamesController.swift */; };
 		D48A66C71CBFF34F002E362E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A66C61CBFF34F002E362E /* SearchViewController.swift */; };
@@ -66,6 +68,8 @@
 		D43A179A1CE8066100D31217 /* MediaView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MediaView.xib; sourceTree = "<group>"; };
 		D43A179C1CE8072F00D31217 /* MediaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
 		D43A179E1CE8099F00D31217 /* GameMediaItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMediaItem.swift; sourceTree = "<group>"; };
+		D45A3FAC1D08651600F44397 /* SearchGameCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchGameCell.xib; sourceTree = "<group>"; };
+		D45A3FAE1D08656300F44397 /* SearchGameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchGameCell.swift; sourceTree = "<group>"; };
 		D48A66BF1CBFF34F002E362E /* UpcomingGamesiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UpcomingGamesiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D48A66C21CBFF34F002E362E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D48A66C41CBFF34F002E362E /* TrackedGamesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackedGamesController.swift; sourceTree = "<group>"; };
@@ -263,6 +267,8 @@
 				D43A179A1CE8066100D31217 /* MediaView.xib */,
 				D409F5B11CE839E100EA5025 /* MediaViewCell.xib */,
 				D409F5B51CE83ED200EA5025 /* MediaViewCell.swift */,
+				D45A3FAC1D08651600F44397 /* SearchGameCell.xib */,
+				D45A3FAE1D08656300F44397 /* SearchGameCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -395,6 +401,7 @@
 				D48A66FB1CBFF9B5002E362E /* TrackedGamesListItem.xib in Resources */,
 				D48A670B1CD1C43B002E362E /* TrackedGameView.xib in Resources */,
 				D48A671B1CE60204002E362E /* WebURLView.xib in Resources */,
+				D45A3FAD1D08651600F44397 /* SearchGameCell.xib in Resources */,
 				D43A179B1CE8066100D31217 /* MediaView.xib in Resources */,
 				D48A67151CE5F632002E362E /* GameNewsArticleCell.xib in Resources */,
 				D48A66CF1CBFF350002E362E /* LaunchScreen.storyboard in Resources */,
@@ -472,6 +479,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D45A3FAF1D08656300F44397 /* SearchGameCell.swift in Sources */,
 				D48A67051CC01825002E362E /* TrackedGameItem.swift in Sources */,
 				D43A179D1CE8072F00D31217 /* MediaViewController.swift in Sources */,
 				D48A66C71CBFF34F002E362E /* SearchViewController.swift in Sources */,
