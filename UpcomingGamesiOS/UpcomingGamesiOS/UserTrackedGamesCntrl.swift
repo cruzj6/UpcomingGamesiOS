@@ -8,10 +8,21 @@
 
 import UIKit
 
-class UserTrackedGamesData : UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
+class UserTrackedGamesData : UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate
 {
     var userTrackedGames : [TrackedGameItem]!;
     var navCtrl : UINavigationController!;
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+      
+        
+    }
+    
+    func handleLongPress(sender: UILongPressGestureRecognizer)
+    {
+        
+    }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let trackedGameCell: TrackedGamesListItemCell = collectionView
@@ -41,7 +52,6 @@ class UserTrackedGamesData : UIViewController, UICollectionViewDataSource, UICol
                 }
             }
         }
-        
         
         //Set the game title
         trackedGameCell.GameName = curGame.getTitle();

@@ -26,7 +26,7 @@ class httpRequestManager : NSObject{
     
     //Calls callback method passing it an array of NewsArticleItem's for the given game
     func requestArticlesForGame(gameName: String, handleGameArticles: ([NewsArticleItem]) -> ()){
-        let reqString = baseURL + "/info/getArticles?gameName=" + gameName;
+        let reqString = baseURL + "/info/articles?gameName=" + gameName;
         let reqURL = NSURL(string: reqString.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!)
         let urlSession = NSURLSession.sharedSession();
         
@@ -104,7 +104,7 @@ class httpRequestManager : NSObject{
     
     func buildUserTrackedGames(trackedGameDataHandler: ([TrackedGameItem]) -> ())
     {
-        let reqString = baseURL + "/userdata/UserTrackedGames";
+        let reqString = baseURL + "/userdata/trackedGames";
         let reqURL = NSURL(string: reqString);
         let urlSession = NSURLSession.sharedSession();
         
@@ -192,7 +192,7 @@ class httpRequestManager : NSObject{
     func addGameToTracked(gameId: String)
     {
         //Set up our URL post request
-        let reqString = baseURL + "/userdata/addTrackedGame"
+        let reqString = baseURL + "/userdata/trackedGames"
         let reqURL = NSURL(string: reqString)
         let postParams = "gameid=" + gameId
         let urlSession = NSURLSession.sharedSession()
@@ -205,6 +205,26 @@ class httpRequestManager : NSObject{
         //Make the request
         let task = urlSession.dataTaskWithRequest(request)
         task.resume()
+    }
+    
+    func removeGameFromTracked(gameId: String)
+    {
+        //Set up our URL post request
+        //TODO: Change to delete
+        let reqString = baseURL + "/userdata/trackedGames"
+        let reqURL = NSURL(string: reqString)
+        let postParams = "gameid=" + gameId
+        let urlSession = NSURLSession.sharedSession()
+        let request = NSMutableURLRequest(URL: reqURL!)
+        
+        request.HTTPMethod = "POST"
+        request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        request.HTTPBody = postParams.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        //Make the request
+        let task = urlSession.dataTaskWithRequest(request)
+        task.resume()
+
     }
     
     func searchForGames(searchString: String, handleSearchResults: ([TrackedGameItem]) -> ())

@@ -25,6 +25,15 @@ class TrackedGameItems: UIView{
         trackedGamesList.dataSource = userGameDataDel;
         trackedGamesList.delegate = userGameDataDel;
         
+        //Long press on items
+        let lp : UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: userGameDataDel, action: #selector(userGameDataDel.handleLongPress))
+        
+        lp.minimumPressDuration = 0.5
+        lp.delaysTouchesBegan = true
+        lp.delegate = userGameDataDel
+        
+        self.trackedGamesList.addGestureRecognizer(lp)
+        
         trackedGamesList.reloadData()
     }
     
