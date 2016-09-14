@@ -39,6 +39,9 @@
 		D48A67171CE5F6DB002E362E /* NewsArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A67161CE5F6DB002E362E /* NewsArticleCell.swift */; };
 		D48A67191CE60173002E362E /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A67181CE60173002E362E /* WebViewController.swift */; };
 		D48A671B1CE60204002E362E /* WebURLView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D48A671A1CE60204002E362E /* WebURLView.xib */; };
+		D4AF28A61D88CB55001A0885 /* HRToast+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AF28A51D88CB55001A0885 /* HRToast+UIView.swift */; };
+		D4AF28A81D88CD16001A0885 /* FriendsTrackedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AF28A71D88CD16001A0885 /* FriendsTrackedViewController.swift */; };
+		D4AF28AA1D88CD83001A0885 /* FriendsTrackedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4AF28A91D88CD83001A0885 /* FriendsTrackedView.xib */; };
 		FF57FF16FDAF659FCD311F8B /* Pods_UpcomingGamesiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C658F6BE16A3A900EED5A7B9 /* Pods_UpcomingGamesiOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +103,9 @@
 		D48A67161CE5F6DB002E362E /* NewsArticleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsArticleCell.swift; sourceTree = "<group>"; };
 		D48A67181CE60173002E362E /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		D48A671A1CE60204002E362E /* WebURLView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebURLView.xib; sourceTree = "<group>"; };
+		D4AF28A51D88CB55001A0885 /* HRToast+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "HRToast+UIView.swift"; path = "../../../Downloads/Toast-Swift-master/SwiftToastDemo/Toast/HRToast+UIView.swift"; sourceTree = "<group>"; };
+		D4AF28A71D88CD16001A0885 /* FriendsTrackedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTrackedViewController.swift; sourceTree = "<group>"; };
+		D4AF28A91D88CD83001A0885 /* FriendsTrackedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendsTrackedView.xib; sourceTree = "<group>"; };
 		FB43D463A9D60A26D9BD0ED2 /* Pods-UpcomingGamesiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpcomingGamesiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-UpcomingGamesiOS/Pods-UpcomingGamesiOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -224,6 +230,7 @@
 		D48A66F41CBFF3B3002E362E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D4AF28A51D88CB55001A0885 /* HRToast+UIView.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -269,6 +276,7 @@
 				D409F5B51CE83ED200EA5025 /* MediaViewCell.swift */,
 				D45A3FAC1D08651600F44397 /* SearchGameCell.xib */,
 				D45A3FAE1D08656300F44397 /* SearchGameCell.swift */,
+				D4AF28A91D88CD83001A0885 /* FriendsTrackedView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -284,6 +292,7 @@
 				D48A67181CE60173002E362E /* WebViewController.swift */,
 				D43A179C1CE8072F00D31217 /* MediaViewController.swift */,
 				D409F5B71CEA169D00EA5025 /* ServerLoginViewController.swift */,
+				D4AF28A71D88CD16001A0885 /* FriendsTrackedViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -399,6 +408,7 @@
 				D48A67111CE4F340002E362E /* NewsArticlesView.xib in Resources */,
 				D409F5B21CE839E100EA5025 /* MediaViewCell.xib in Resources */,
 				D48A66FB1CBFF9B5002E362E /* TrackedGamesListItem.xib in Resources */,
+				D4AF28AA1D88CD83001A0885 /* FriendsTrackedView.xib in Resources */,
 				D48A670B1CD1C43B002E362E /* TrackedGameView.xib in Resources */,
 				D48A671B1CE60204002E362E /* WebURLView.xib in Resources */,
 				D45A3FAD1D08651600F44397 /* SearchGameCell.xib in Resources */,
@@ -481,6 +491,7 @@
 			files = (
 				D45A3FAF1D08656300F44397 /* SearchGameCell.swift in Sources */,
 				D48A67051CC01825002E362E /* TrackedGameItem.swift in Sources */,
+				D4AF28A81D88CD16001A0885 /* FriendsTrackedViewController.swift in Sources */,
 				D43A179D1CE8072F00D31217 /* MediaViewController.swift in Sources */,
 				D48A66C71CBFF34F002E362E /* SearchViewController.swift in Sources */,
 				D48A670F1CE4CA32002E362E /* NewsArticleItem.swift in Sources */,
@@ -495,6 +506,7 @@
 				D48A67171CE5F6DB002E362E /* NewsArticleCell.swift in Sources */,
 				D48A67131CE502FB002E362E /* NewsArticlesViewController.swift in Sources */,
 				D48A67091CCAED7B002E362E /* TrackedGamesListItemCell.swift in Sources */,
+				D4AF28A61D88CB55001A0885 /* HRToast+UIView.swift in Sources */,
 				D48A67191CE60173002E362E /* WebViewController.swift in Sources */,
 				D48A66FF1CBFFA95002E362E /* UserTrackedGamesView.swift in Sources */,
 				D48A67011CC008DF002E362E /* UserTrackedGamesCntrl.swift in Sources */,

@@ -130,6 +130,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         let index = sender.tag
         let id = curSearchResults[index].getgbid()
         httpRequestManager.instance.addGameToTracked(String(id))
+        self.view.makeToast(message: "Added: " + curSearchResults[index].getTitle() + " to tracked games")
     }
 
 }
