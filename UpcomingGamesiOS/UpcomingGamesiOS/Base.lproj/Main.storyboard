@@ -218,25 +218,6 @@
             </objects>
             <point key="canvasLocation" x="351" y="480"/>
         </scene>
-        <!--Item-->
-        <scene sceneID="Lxc-nA-XEW">
-            <objects>
-                <viewController id="VDY-di-lep" customClass="FriendsTrackedViewController" customModule="UpcomingGamesiOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Pql-GD-Ofn"/>
-                        <viewControllerLayoutGuide type="bottom" id="yh0-yh-pgO"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="s5A-ew-M4Z">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="ly9-Cr-7rS"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JDf-ej-XHE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-462" y="1092"/>
-        </scene>
         <!--Server Login View Controller-->
         <scene sceneID="1f0-6V-jQ9">
             <objects>
@@ -285,12 +266,22 @@
                     <connections>
                         <segue destination="EgP-iL-TQ9" kind="relationship" relationship="viewControllers" id="SSc-ip-Lmw"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
-                        <segue destination="VDY-di-lep" kind="relationship" relationship="viewControllers" id="VIg-to-lqg"/>
+                        <segue destination="wYL-fl-Yv8" kind="relationship" relationship="viewControllers" id="bTH-iO-Xon"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-462" y="348"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="yH5-JS-4ff">
+            <objects>
+                <viewController id="wYL-fl-Yv8" customClass="FriendsTrackedViewController" customModule="UpcomingGamesiOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Uf7-dw-Hbw"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P8g-bx-fi0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-462" y="1076"/>
         </scene>
     </scenes>
     <resources>

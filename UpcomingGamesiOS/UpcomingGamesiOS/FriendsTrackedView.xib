@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FriendsTrackedViewController" customModule="UpcomingGamesiOS" customModuleProvider="target">
             <connections>
-                <outlet property="view" destination="iN0-l3-epB" id="gxj-Ky-2yN"/>
+                <outlet property="view" destination="iN0-l3-epB" id="RKj-Ua-kbm"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -15,15 +15,19 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BP2-1m-3bk">
-                    <rect key="frame" x="315" y="220" width="46" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BP2-1m-3bk">
+                    <rect key="frame" x="546" y="8" width="46" height="30"/>
                     <state key="normal" title="Button"/>
                     <connections>
-                        <action selector="toggleShowAll:" destination="-1" eventType="touchUpInside" id="mIQ-ci-tYu"/>
+                        <action selector="toggleShowAll:" destination="-1" eventType="touchUpInside" id="Jya-B0-OyQ"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="BP2-1m-3bk" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="269" id="fyA-iG-Nrc"/>
+                <constraint firstItem="BP2-1m-3bk" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="zDo-gW-Los"/>
+            </constraints>
             <point key="canvasLocation" x="186" y="295"/>
         </view>
     </objects>
