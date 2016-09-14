@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FriendsTrackedViewController" customModule="UpcomingGamesiOS" customModuleProvider="target">
             <connections>
+                <outlet property="friendsTrackedGamesTable" destination="cBD-UM-Nmq" id="tDN-TL-3hq"/>
                 <outlet property="view" destination="iN0-l3-epB" id="RKj-Ua-kbm"/>
             </connections>
         </placeholder>
@@ -22,6 +23,14 @@
                         <action selector="toggleShowAll:" destination="-1" eventType="touchUpInside" id="Jya-B0-OyQ"/>
                     </connections>
                 </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cBD-UM-Nmq">
+                    <rect key="frame" x="8" y="32" width="584" height="560"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="gDQ-ha-eAM"/>
+                        <outlet property="delegate" destination="-1" id="zXH-mB-iMU"/>
+                    </connections>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>

@@ -42,6 +42,7 @@
 		D4AF28A61D88CB55001A0885 /* HRToast+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AF28A51D88CB55001A0885 /* HRToast+UIView.swift */; };
 		D4AF28A81D88CD16001A0885 /* FriendsTrackedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AF28A71D88CD16001A0885 /* FriendsTrackedViewController.swift */; };
 		D4AF28AA1D88CD83001A0885 /* FriendsTrackedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4AF28A91D88CD83001A0885 /* FriendsTrackedView.xib */; };
+		D4AF28AC1D89AB70001A0885 /* FriendsTrackedGamesItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AF28AB1D89AB70001A0885 /* FriendsTrackedGamesItem.swift */; };
 		FF57FF16FDAF659FCD311F8B /* Pods_UpcomingGamesiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C658F6BE16A3A900EED5A7B9 /* Pods_UpcomingGamesiOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +107,7 @@
 		D4AF28A51D88CB55001A0885 /* HRToast+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "HRToast+UIView.swift"; path = "../../../Downloads/Toast-Swift-master/SwiftToastDemo/Toast/HRToast+UIView.swift"; sourceTree = "<group>"; };
 		D4AF28A71D88CD16001A0885 /* FriendsTrackedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTrackedViewController.swift; sourceTree = "<group>"; };
 		D4AF28A91D88CD83001A0885 /* FriendsTrackedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendsTrackedView.xib; sourceTree = "<group>"; };
+		D4AF28AB1D89AB70001A0885 /* FriendsTrackedGamesItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTrackedGamesItem.swift; sourceTree = "<group>"; };
 		FB43D463A9D60A26D9BD0ED2 /* Pods-UpcomingGamesiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpcomingGamesiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-UpcomingGamesiOS/Pods-UpcomingGamesiOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -214,6 +216,7 @@
 				D48A67061CC037BF002E362E /* UserDataManager.swift */,
 				D48A670E1CE4CA32002E362E /* NewsArticleItem.swift */,
 				D43A179E1CE8099F00D31217 /* GameMediaItem.swift */,
+				D4AF28AB1D89AB70001A0885 /* FriendsTrackedGamesItem.swift */,
 			);
 			name = Framedation;
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 				D48A67071CC037BF002E362E /* UserDataManager.swift in Sources */,
 				D409F5B61CE83ED200EA5025 /* MediaViewCell.swift in Sources */,
 				D48A66C51CBFF34F002E362E /* TrackedGamesController.swift in Sources */,
+				D4AF28AC1D89AB70001A0885 /* FriendsTrackedGamesItem.swift in Sources */,
 				D409F5B81CEA169D00EA5025 /* ServerLoginViewController.swift in Sources */,
 				D48A67171CE5F6DB002E362E /* NewsArticleCell.swift in Sources */,
 				D48A67131CE502FB002E362E /* NewsArticlesViewController.swift in Sources */,

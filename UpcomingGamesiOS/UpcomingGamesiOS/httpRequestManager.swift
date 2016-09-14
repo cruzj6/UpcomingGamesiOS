@@ -164,6 +164,7 @@ class httpRequestManager : NSObject{
         }
         return returnItems
     }
+    
     func getIsLoggedIn(handleLoginResult: (Bool)-> ())
     {
         
@@ -273,6 +274,55 @@ class httpRequestManager : NSObject{
         else{
            handleSearchResults([TrackedGameItem]())
         }
+    }
+    
+    func requestFriendsTracked(handleFriendsTracked: ([FriendsTrackedGamesItem]) -> ())
+    {
+        let reqString = baseURL + "/userdata/friendsTrackedGames";
+        let reqURL = NSURL(string: reqString);
+        let urlSession = NSURLSession.sharedSession();
+        
+        let task = urlSession.dataTaskWithURL(reqURL!, completionHandler: { (data:NSData?, resp: NSURLResponse?, err: NSError?) -> Void in
+            
+            //If no error getting data
+            if(err == nil && data != nil){
+                do{
+                    //Get the JSON Data object
+                    let friendsDataUnsorted = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
+                    print(friendsDataUnsorted)
+                    
+                    //List to return
+                    var friendsGameData = [FriendsTrackedGamesItem]();
+                    
+                    //For each user build their tracked games list
+                    for data in friendsDataUnsorted as! NSArray
+                    {
+                        //Extract gamedata from JSON object
+                        let trackedGames = data["gameData"] as! NSArray
+                        let gameItems = self.buildTrackedGamesItemsCollection(trackedGames as AnyObject)
+                        
+                        //Get username and avatar url from JSON
+                        let userName = data["userid"] as! String
+                        let avatarUrl = data["avatar"] as! String
+                        
+                        //Push new item into list
+                        friendsGameData.append(FriendsTrackedGamesItem(name: userName, gameItems: gameItems, avatarUrl: avatarUrl))
+                    }
+                    
+                    //Callback to caller handler
+                    handleFriendsTracked(friendsGameData);
+                }
+                catch
+                {
+                    print("Error loading data")
+                    
+                    //return empty array on error
+                    handleFriendsTracked([FriendsTrackedGamesItem]())
+                }
+            }
+        })
+        
+        task.resume();
     }
     
 }
