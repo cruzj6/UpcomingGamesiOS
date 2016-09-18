@@ -299,7 +299,7 @@ class httpRequestManager : NSObject{
                     {
                         //Extract gamedata from JSON object
                         let trackedGames = data["gameData"] as! NSArray
-                        let gameItems = self.buildTrackedGamesItemsCollection(trackedGames as AnyObject)
+                        let gameItems = trackedGames.count > 0 ? self.buildTrackedGamesItemsCollection(trackedGames as AnyObject) : [TrackedGameItem]()
                         
                         //Get username and avatar url from JSON
                         let userName = data["userid"] as! String

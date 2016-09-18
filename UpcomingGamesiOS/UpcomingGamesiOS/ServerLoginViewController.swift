@@ -56,7 +56,7 @@ class ServerLoginViewController: UIViewController, UIWebViewDelegate {
         print("===========End Cookies==========")
         
         print("Loading: " + webView.request!.URL!.absoluteString);
-        if(webView.request!.URL!.absoluteString == "https://upcominggames.herokuapp.com/")
+        if(webView.request!.URL!.absoluteString.containsString("https://upcominggames.herokuapp.com/"))
         {
             //Load the view, we logged in
             goToTrackGames()

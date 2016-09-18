@@ -43,6 +43,8 @@
 		D4AF28A81D88CD16001A0885 /* FriendsTrackedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AF28A71D88CD16001A0885 /* FriendsTrackedViewController.swift */; };
 		D4AF28AA1D88CD83001A0885 /* FriendsTrackedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4AF28A91D88CD83001A0885 /* FriendsTrackedView.xib */; };
 		D4AF28AC1D89AB70001A0885 /* FriendsTrackedGamesItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AF28AB1D89AB70001A0885 /* FriendsTrackedGamesItem.swift */; };
+		D4AF28AE1D8F1F1E001A0885 /* FriendsTrackedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4AF28AD1D8F1F1E001A0885 /* FriendsTrackedCell.xib */; };
+		D4AF28B01D8F1FC8001A0885 /* FriendsTrackedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AF28AF1D8F1FC8001A0885 /* FriendsTrackedCell.swift */; };
 		FF57FF16FDAF659FCD311F8B /* Pods_UpcomingGamesiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C658F6BE16A3A900EED5A7B9 /* Pods_UpcomingGamesiOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -108,6 +110,8 @@
 		D4AF28A71D88CD16001A0885 /* FriendsTrackedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTrackedViewController.swift; sourceTree = "<group>"; };
 		D4AF28A91D88CD83001A0885 /* FriendsTrackedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendsTrackedView.xib; sourceTree = "<group>"; };
 		D4AF28AB1D89AB70001A0885 /* FriendsTrackedGamesItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTrackedGamesItem.swift; sourceTree = "<group>"; };
+		D4AF28AD1D8F1F1E001A0885 /* FriendsTrackedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendsTrackedCell.xib; sourceTree = "<group>"; };
+		D4AF28AF1D8F1FC8001A0885 /* FriendsTrackedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTrackedCell.swift; sourceTree = "<group>"; };
 		FB43D463A9D60A26D9BD0ED2 /* Pods-UpcomingGamesiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpcomingGamesiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-UpcomingGamesiOS/Pods-UpcomingGamesiOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -280,6 +284,8 @@
 				D45A3FAC1D08651600F44397 /* SearchGameCell.xib */,
 				D45A3FAE1D08656300F44397 /* SearchGameCell.swift */,
 				D4AF28A91D88CD83001A0885 /* FriendsTrackedView.xib */,
+				D4AF28AD1D8F1F1E001A0885 /* FriendsTrackedCell.xib */,
+				D4AF28AF1D8F1FC8001A0885 /* FriendsTrackedCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -420,6 +426,7 @@
 				D48A66CF1CBFF350002E362E /* LaunchScreen.storyboard in Resources */,
 				D48A66CC1CBFF350002E362E /* Assets.xcassets in Resources */,
 				D48A66CA1CBFF34F002E362E /* Main.storyboard in Resources */,
+				D4AF28AE1D8F1F1E001A0885 /* FriendsTrackedCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +503,7 @@
 				D48A67051CC01825002E362E /* TrackedGameItem.swift in Sources */,
 				D4AF28A81D88CD16001A0885 /* FriendsTrackedViewController.swift in Sources */,
 				D43A179D1CE8072F00D31217 /* MediaViewController.swift in Sources */,
+				D4AF28B01D8F1FC8001A0885 /* FriendsTrackedCell.swift in Sources */,
 				D48A66C71CBFF34F002E362E /* SearchViewController.swift in Sources */,
 				D48A670F1CE4CA32002E362E /* NewsArticleItem.swift in Sources */,
 				D48A67031CC01416002E362E /* httpRequestManager.swift in Sources */,
