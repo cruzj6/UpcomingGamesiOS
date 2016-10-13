@@ -10,7 +10,7 @@
 import Foundation
 
 class UserDataManager:NSObject{
-    private var curTrackedGames : [TrackedGameItem]?
+    fileprivate var curTrackedGames : [TrackedGameItem]?
     static var instance = UserDataManager();
     
     var UserTrackedGames : [TrackedGameItem]{
@@ -23,7 +23,7 @@ class UserDataManager:NSObject{
         super.init();
     }
     
-    func initializeUser(user: String, pass: String, handleUserInitFin: ()->())
+    func initializeUser(_ user: String, pass: String, handleUserInitFin: @escaping ()->())
     {
         //Log the user in to get the data
         httpRequestManager.instance.logUserIn({() in
@@ -38,7 +38,7 @@ class UserDataManager:NSObject{
     }
     
     //Builds up the data for the user utilizing httpReqmanager
-    private func pullUserData(handleDataPulled: ()->())
+    fileprivate func pullUserData(_ handleDataPulled: @escaping ()->())
     {
         //Make request for user tracked games
         httpRequestManager.instance.buildUserTrackedGames ({ (trackedGames: [TrackedGameItem]) in

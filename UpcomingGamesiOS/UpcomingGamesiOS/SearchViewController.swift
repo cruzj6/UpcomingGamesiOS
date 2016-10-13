@@ -22,11 +22,11 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         curSearchResults = [TrackedGameItem]()
         
         //Set up table view cells
-        searchResultsTableView.registerNib(UINib(nibName: "SearchGameCell", bundle: nil), forCellReuseIdentifier: "Cell")
-        searchResultsTableView.rowHeight = searchResultsTableView.dequeueReusableCellWithIdentifier("Cell")!.frame.height
+        searchResultsTableView.register(UINib(nibName: "SearchGameCell", bundle: nil), forCellReuseIdentifier: "Cell")
+        searchResultsTableView.rowHeight = searchResultsTableView.dequeueReusableCell(withIdentifier: "Cell")!.frame.height
         
         //Set up loading view
-        loadingView.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray;
+        loadingView.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray;
         loadingView.center = self.view.center;
         loadingView.hidesWhenStopped = true;
         self.view.addSubview(loadingView);
@@ -43,16 +43,16 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        noResultsLabel.hidden = true
+        noResultsLabel.isHidden = true
     }
     
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print("SEARCHED FOR: " + searchBar.text!)
         
         //Hide no Results Label
-        self.noResultsLabel.hidden = true
+        self.noResultsLabel.isHidden = true
         
         //Loading indication
         loadingView.startAnimating();
@@ -61,12 +61,12 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         makeSearch(searchBar.text!)
     }
     
-    func makeSearch(searchText: String)
+    func makeSearch(_ searchText: String)
     {
         //TODO: Search http req manager
         httpRequestManager.instance.searchForGames(searchText, handleSearchResults: {(resultGames: [TrackedGameItem]) in
             
-            dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.main.async(execute: {
                 self.loadingView.stopAnimating()
                 self.curSearchResults = resultGames
                 self.searchResultsTableView.reloadData()
@@ -74,48 +74,48 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         })
     }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(curSearchResults.count == 0)
         {
-            dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.main.async(execute: {
                 self.loadingView.stopAnimating()
-                self.searchResultsTableView.hidden = true
-                self.noResultsLabel.hidden = false
+                self.searchResultsTableView.isHidden = true
+                self.noResultsLabel.isHidden = false
             })
         }
         else{
-            self.searchResultsTableView.hidden = false
+            self.searchResultsTableView.isHidden = false
         }
         return curSearchResults.count
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! SearchGameCell
-        let gameItem = curSearchResults[indexPath.row]
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SearchGameCell
+        let gameItem = curSearchResults[(indexPath as NSIndexPath).row]
         
-        cell.gameNameLabel.text = curSearchResults[indexPath.item].getTitle()
-        cell.addToTrackedButton.addTarget(self, action: #selector(clickAddGame), forControlEvents: .TouchUpInside)
-        cell.addToTrackedButton.tag = indexPath.row
+        cell.gameNameLabel.text = curSearchResults[(indexPath as NSIndexPath).item].getTitle()
+        cell.addToTrackedButton.addTarget(self, action: #selector(clickAddGame), for: .touchUpInside)
+        cell.addToTrackedButton.tag = (indexPath as NSIndexPath).row
         
         //Get the image async
-        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+        let priority = DispatchQueue.GlobalQueuePriority.default
+        DispatchQueue.global(priority: priority).async {
             
             //Make the URL secure to make request
             let unsecureURLString: String = gameItem.getImgUrl();
-            let secureURLString = unsecureURLString.stringByReplacingOccurrencesOfString("http", withString: "http", options: NSStringCompareOptions.LiteralSearch, range: nil)
+            let secureURLString = unsecureURLString.replacingOccurrences(of: "http", with: "http", options: NSString.CompareOptions.literal, range: nil)
             
             //Create NSURL object for making the request
-            let url = NSURL(string: secureURLString)
+            let url = URL(string: secureURLString)
             
             //Make the request for the image and if we get data set it to image
-            let data = NSData(contentsOfURL: url!);
+            let data = try? Data(contentsOf: url!);
 
-            dispatch_async(dispatch_get_main_queue()) {
+            DispatchQueue.main.async {
                 if(data != nil){
                     cell.gameImageView.image = UIImage(data: data!)
                 }
@@ -125,7 +125,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         return cell
     }
     
-    func clickAddGame(sender: UIButton)
+    func clickAddGame(_ sender: UIButton)
     {
         let index = sender.tag
         let id = curSearchResults[index].getgbid()

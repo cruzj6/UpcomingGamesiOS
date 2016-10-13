@@ -38,10 +38,10 @@ class GameInfoViewController: UIViewController, UIScrollViewDelegate {
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidAppear(animated: Bool)
+    override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
-        gameInfoScrollView.contentSize = CGSizeMake(gameInfoScrollView.frame.width * 2, gameInfoScrollView.frame.width)
+        gameInfoScrollView.contentSize = CGSize(width: gameInfoScrollView.frame.width * 2, height: gameInfoScrollView.frame.width)
          loadGameInfo();
     }
     
@@ -50,24 +50,24 @@ class GameInfoViewController: UIViewController, UIScrollViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func setGameData(gameItem: TrackedGameItem)
+    func setGameData(_ gameItem: TrackedGameItem)
     {
         curGameItem = gameItem;
     }
     
-    private func loadGameInfo()
+    fileprivate func loadGameInfo()
     {
         gameTitleLabel.text = curGameItem?.getTitle();
         
         //Make the URL secure to make request
         let unsecureURLString: String = (curGameItem?.getImgUrl())!;
-        let secureURLString = unsecureURLString.stringByReplacingOccurrencesOfString("http", withString: "http", options: NSStringCompareOptions.LiteralSearch, range: nil)
+        let secureURLString = unsecureURLString.replacingOccurrences(of: "http", with: "http", options: NSString.CompareOptions.literal, range: nil)
         
         //Create NSURL object for making the request
-        let url = NSURL(string: secureURLString)
+        let url = URL(string: secureURLString)
         
         //Make the request for the image and if we get data set it to image
-        let data = NSData(contentsOfURL: url!);
+        let data = try? Data(contentsOf: url!);
         if(data != nil){
             self.gameImageView.image = UIImage(data: data!)
         }
@@ -78,8 +78,8 @@ class GameInfoViewController: UIViewController, UIScrollViewDelegate {
 
         //Get the loading wheel going for news
         let loadingViewNews = UIActivityIndicatorView();
-        loadingViewNews.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray;
-        loadingViewNews.center = CGPointMake(self.gameInfoScrollView.frame.width/2, self.gameInfoScrollView.frame.height/2)
+        loadingViewNews.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray;
+        loadingViewNews.center = CGPoint(x: self.gameInfoScrollView.frame.width/2, y: self.gameInfoScrollView.frame.height/2)
         loadingViewNews.hidesWhenStopped = true;
         self.gameInfoScrollView.addSubview(loadingViewNews);
         loadingViewNews.startAnimating();
@@ -88,10 +88,10 @@ class GameInfoViewController: UIViewController, UIScrollViewDelegate {
             handleGameArticles: {(newsItems: [NewsArticleItem]) in
                 
                 //On UI Thread
-                dispatch_async(dispatch_get_main_queue(),{
+                DispatchQueue.main.async(execute: {
                     
                     //Add first page (news view)
-                    self.newsViewController.view.frame = CGRectMake(0, 0, self.gameInfoScrollView.frame.width, self.gameInfoScrollView.frame.height)
+                    self.newsViewController.view.frame = CGRect(x: 0, y: 0, width: self.gameInfoScrollView.frame.width, height: self.gameInfoScrollView.frame.height)
                     self.newsViewController.loadViewIfNeeded()
                     self.newsViewController.setNewsArts(newsItems)
 
@@ -104,8 +104,8 @@ class GameInfoViewController: UIViewController, UIScrollViewDelegate {
         
         //Get the loading wheel going for media
         let loadingViewMedia = UIActivityIndicatorView();
-        loadingViewMedia.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray;
-        loadingViewMedia.center = CGPointMake(self.gameInfoScrollView.frame.width + self.gameInfoScrollView.frame.width/2, self.gameInfoScrollView.frame.height/2)
+        loadingViewMedia.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray;
+        loadingViewMedia.center = CGPoint(x: self.gameInfoScrollView.frame.width + self.gameInfoScrollView.frame.width/2, y: self.gameInfoScrollView.frame.height/2)
         loadingViewMedia.hidesWhenStopped = true;
         self.gameInfoScrollView.addSubview(loadingViewMedia);
         loadingViewMedia.startAnimating();
@@ -113,14 +113,14 @@ class GameInfoViewController: UIViewController, UIScrollViewDelegate {
         reqManager.requestMediaForGame((curGameItem?.getTitle())!, handleGameMedia: {(mediaItems: [GameMediaItem]) in
             
             //ASync on UI Thread
-            dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.main.async(execute: {
                 
                 loadingViewMedia.stopAnimating()
                 
                 //Create VC from the nib
                 self.mediaViewController = MediaViewController(nibName: "MediaView", mediaData: mediaItems)
                 
-                self.mediaViewController!.view.frame = CGRectMake(self.gameInfoScrollView.frame.width, 0, self.gameInfoScrollView.frame.width, self.gameInfoScrollView.frame.height)
+                self.mediaViewController!.view.frame = CGRect(x: self.gameInfoScrollView.frame.width, y: 0, width: self.gameInfoScrollView.frame.width, height: self.gameInfoScrollView.frame.height)
                 //self.mediaViewController!.loadViewIfNeeded()
                 
                 self.gameInfoScrollView.addSubview(self.mediaViewController!.view)
@@ -129,7 +129,7 @@ class GameInfoViewController: UIViewController, UIScrollViewDelegate {
         })
     }
     
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         if(scrollView.contentOffset.x > scrollView.frame.width/2)
         {
@@ -142,7 +142,7 @@ class GameInfoViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    @IBAction func sectionSelectionChanged(sender: AnyObject) {
+    @IBAction func sectionSelectionChanged(_ sender: AnyObject) {
         let selector = sender as! UISegmentedControl
         if(selector.selectedSegmentIndex == 1)
         {

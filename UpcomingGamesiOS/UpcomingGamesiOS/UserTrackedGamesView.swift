@@ -13,13 +13,13 @@ class TrackedGameItems: UIView{
     
     @IBOutlet weak var trackedGamesList: UICollectionView!
     
-    func setUserTrackedGames(trackedGames: [TrackedGameItem])
+    func setUserTrackedGames(_ trackedGames: [TrackedGameItem])
     {
         //Set the data for the Grid view of each tracked game
         userGameDataDel.userTrackedGames = trackedGames;
         
         //Register the nib so it makes these
-        trackedGamesList.registerNib(UINib(nibName: "TrackedGamesListItem", bundle: nil), forCellWithReuseIdentifier: "trackedCell")
+        trackedGamesList.register(UINib(nibName: "TrackedGamesListItem", bundle: nil), forCellWithReuseIdentifier: "trackedCell")
         
         //Custom delegate and data source for cells and click events
         trackedGamesList.dataSource = userGameDataDel;

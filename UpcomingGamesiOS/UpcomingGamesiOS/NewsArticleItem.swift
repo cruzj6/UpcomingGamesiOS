@@ -10,10 +10,10 @@ import Foundation
 
 class NewsArticleItem : NSObject{
     
-    private var title : String
-    private var desc : String
-    private var urlString : String
-    private var date : String
+    fileprivate var title : String
+    fileprivate var desc : String
+    fileprivate var urlString : String
+    fileprivate var date : String
     
     init(title: String, desc: String, urlString: String, date: String)
     {

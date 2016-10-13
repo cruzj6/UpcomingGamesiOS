@@ -9,10 +9,10 @@
 import Foundation
 
 class TrackedGameItem : NSObject{
-    private var title: String;
-    private var imgurl: String;
-    private var gbid: Int;
-    private var releasedate: String;
+    fileprivate var title: String;
+    fileprivate var imgurl: String;
+    fileprivate var gbid: Int;
+    fileprivate var releasedate: String;
     
     init(title: String, imgurl: String, gbid: Int, releaseDate: String){
         self.title = title

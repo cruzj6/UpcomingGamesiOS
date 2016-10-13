@@ -20,7 +20,7 @@ class WebViewController: UIViewController, NSURLConnectionDelegate {
         // Do any additional setup after loading the view.
         if(urlToLoad != nil)
         {
-            let urlRequest = NSURLRequest(URL: NSURL(string: (urlToLoad)!)!)
+            let urlRequest = URLRequest(url: URL(string: (urlToLoad)!)!)
             _ = NSURLConnection(request: urlRequest, delegate: self)
             webView.loadRequest(urlRequest)
         }
@@ -31,45 +31,45 @@ class WebViewController: UIViewController, NSURLConnectionDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func connection(connection: NSURLConnection, canAuthenticateAgainstProtectionSpace protectionSpace: NSURLProtectionSpace) -> Bool{
+    func connection(_ connection: NSURLConnection, canAuthenticateAgainstProtectionSpace protectionSpace: URLProtectionSpace) -> Bool{
         return true
     }
     
     
-    func connection(connection: NSURLConnection, didReceiveAuthenticationChallenge challenge: NSURLAuthenticationChallenge){
+    func connection(_ connection: NSURLConnection, didReceive challenge: URLAuthenticationChallenge){
         
         print("did autherntcationchallenge = \(challenge.protectionSpace.authenticationMethod)")
         
         if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust  {
             print("send credential Server Trust")
-            let credential = NSURLCredential(forTrust: challenge.protectionSpace.serverTrust!)
-            challenge.sender!.useCredential(credential, forAuthenticationChallenge: challenge)
+            let credential = URLCredential(trust: challenge.protectionSpace.serverTrust!)
+            challenge.sender!.use(credential, for: challenge)
             
         }else if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodHTTPBasic{
             print("send credential HTTP Basic")
-            let defaultCredentials: NSURLCredential = NSURLCredential(user: "username", password: "password", persistence:NSURLCredentialPersistence.ForSession)
-            challenge.sender!.useCredential(defaultCredentials, forAuthenticationChallenge: challenge)
+            let defaultCredentials: URLCredential = URLCredential(user: "username", password: "password", persistence:URLCredential.Persistence.forSession)
+            challenge.sender!.use(defaultCredentials, for: challenge)
             
         }else if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodNTLM{
             print("send credential NTLM")
             
         } else{
-            challenge.sender!.performDefaultHandlingForAuthenticationChallenge!(challenge)
+            challenge.sender!.performDefaultHandling!(for: challenge)
         }
     }
     
-    func setURLToLoad(url: String)
+    func setURLToLoad(_ url: String)
     {
-        if(self.isViewLoaded())
+        if(self.isViewLoaded)
         {
-            webView.loadRequest(NSURLRequest(URL: NSURL(string: url)!))
+            webView.loadRequest(URLRequest(url: URL(string: url)!))
         }
         else{
             urlToLoad = url
         }
     }
     
-    @IBAction func closeClick(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func closeClick(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

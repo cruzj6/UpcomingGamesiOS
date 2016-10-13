@@ -28,11 +28,11 @@ class NewsArticlesViewController: UIViewController, UITableViewDataSource, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.registerNib(UINib(nibName: "GameNewsArticleCell", bundle: nil), forCellReuseIdentifier: "Cell")
-        tableView.rowHeight = tableView.dequeueReusableCellWithIdentifier("Cell")!.frame.height
+        tableView.register(UINib(nibName: "GameNewsArticleCell", bundle: nil), forCellReuseIdentifier: "Cell")
+        tableView.rowHeight = tableView.dequeueReusableCell(withIdentifier: "Cell")!.frame.height
     }
     
-    func setNewsArts(newsArts: [NewsArticleItem])
+    func setNewsArts(_ newsArts: [NewsArticleItem])
     {
       newsArtItems = newsArts
         tableView.delegate = self
@@ -40,7 +40,7 @@ class NewsArticlesViewController: UIViewController, UITableViewDataSource, UITab
         tableView.reloadData()
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(newsArtItems != nil)
         {
             return newsArtItems.count
@@ -51,8 +51,8 @@ class NewsArticlesViewController: UIViewController, UITableViewDataSource, UITab
         }
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let theNewsItem = newsArtItems[indexPath.row]
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let theNewsItem = newsArtItems[(indexPath as NSIndexPath).row]
         let urlString = theNewsItem.getURLString()
         //urlString = urlString.stringByReplacingOccurrencesOfString("http", withString: "https")
         
@@ -61,22 +61,22 @@ class NewsArticlesViewController: UIViewController, UITableViewDataSource, UITab
         
         let presentingVC : UIViewController! = ownerVC == nil ? self : ownerVC
         
-        presentingVC.modalTransitionStyle = UIModalTransitionStyle.CoverVertical
+        presentingVC.modalTransitionStyle = UIModalTransitionStyle.coverVertical
         // Cover Vertical is necessary for CurrentContext
-        presentingVC.modalPresentationStyle = .CurrentContext
+        presentingVC.modalPresentationStyle = .currentContext
         // Display on top of    current UIView
-        presentingVC.presentViewController(webViewController, animated: true, completion: nil)
+        presentingVC.present(webViewController, animated: true, completion: nil)
         
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         //Get the new cell for the news article item
-        let newCell:NewsArticleCell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! NewsArticleCell
+        let newCell:NewsArticleCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! NewsArticleCell
         
         //Set the desc and the title
-        newCell.titleLabel.text = newsArtItems[indexPath.row].getTitle()
-        newCell.descLabel.text = newsArtItems[indexPath.row].getDescription()
+        newCell.titleLabel.text = newsArtItems[(indexPath as NSIndexPath).row].getTitle()
+        newCell.descLabel.text = newsArtItems[(indexPath as NSIndexPath).row].getDescription()
         return newCell
     }
 

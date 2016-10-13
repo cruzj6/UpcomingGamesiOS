@@ -19,33 +19,33 @@ class UserTrackedGamesData : UIViewController, UICollectionViewDataSource, UICol
         
     }
     
-    func handleLongPress(sender: UILongPressGestureRecognizer)
+    func handleLongPress(_ sender: UILongPressGestureRecognizer)
     {
         
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let trackedGameCell: TrackedGamesListItemCell = collectionView
-            .dequeueReusableCellWithReuseIdentifier("trackedCell", forIndexPath: indexPath) as! TrackedGamesListItemCell;
+            .dequeueReusableCell(withReuseIdentifier: "trackedCell", for: indexPath) as! TrackedGamesListItemCell;
         
-        trackedGameCell.layer.borderColor = UIColor.whiteColor().CGColor
+        trackedGameCell.layer.borderColor = UIColor.white.cgColor
         trackedGameCell.layer.borderWidth = 2.0
         
-        let curGame = userTrackedGames[indexPath.item];
+        let curGame = userTrackedGames[(indexPath as NSIndexPath).item];
         
         //Get game image async
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)){
+        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async{
             //Make the URL secure to make request
             let unsecureURLString: String = curGame.getImgUrl();
-            let secureURLString = unsecureURLString.stringByReplacingOccurrencesOfString("http", withString: "http", options: NSStringCompareOptions.LiteralSearch, range: nil)
+            let secureURLString = unsecureURLString.replacingOccurrences(of: "http", with: "http", options: NSString.CompareOptions.literal, range: nil)
             
             //Create NSURL object for making the request
-            let url = NSURL(string: secureURLString)
+            let url = URL(string: secureURLString)
             
             //Make the request for the image and if we get data set it to image
-            let data = NSData(contentsOfURL: url!);
+            let data = try? Data(contentsOf: url!);
 
-            dispatch_async(dispatch_get_main_queue())
+            DispatchQueue.main.async
             {
                 if(data != nil){
                     trackedGameCell.gameImageView.image = UIImage(data: data!)
@@ -60,40 +60,40 @@ class UserTrackedGamesData : UIViewController, UICollectionViewDataSource, UICol
         return trackedGameCell;
     }
     
-     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return userTrackedGames.count;
     }
     
     //Set the size of each cell
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize{
-        return CGSizeMake(collectionView.bounds.width/2, collectionView.bounds.height/4);
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{
+        return CGSize(width: collectionView.bounds.width/2, height: collectionView.bounds.height/4);
     }
     
     //Set the spacing
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0;
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0;
     }
     
     //On cell click
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath){
-        print("\"" + userTrackedGames[indexPath.item].getTitle() + "\"" + " selected");
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
+        print("\"" + userTrackedGames[(indexPath as NSIndexPath).item].getTitle() + "\"" + " selected");
         
         //Get the story board
-        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         
         //Create and get ref to the next view (Game Info)
-        let gameViewController = storyboard.instantiateViewControllerWithIdentifier("gameInfoView") as! GameInfoViewController
-        gameViewController.setGameData(userTrackedGames[indexPath.item])
+        let gameViewController = storyboard.instantiateViewController(withIdentifier: "gameInfoView") as! GameInfoViewController
+        gameViewController.setGameData(userTrackedGames[(indexPath as NSIndexPath).item])
         
         //Push the view in the navigation controller
         navCtrl.pushViewController(gameViewController, animated: true)
     }
     
-    func setNavController(ctrl: UINavigationController)
+    func setNavController(_ ctrl: UINavigationController)
     {
         //Set up nav controller for navigating when a game is selected
         self.navCtrl = ctrl;

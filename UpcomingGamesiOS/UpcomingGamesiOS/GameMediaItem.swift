@@ -9,9 +9,9 @@
 import Foundation
 
 class GameMediaItem : NSObject{
-    private var title : String!
-    private var url : String!
-    private var thumbnail : String!
+    fileprivate var title : String!
+    fileprivate var url : String!
+    fileprivate var thumbnail : String!
     
     init(title: String, url: String, thumbnail: String)
     {

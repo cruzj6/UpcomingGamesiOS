@@ -16,25 +16,25 @@ class TrackedGamesController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.userGamesView = NSBundle.mainBundle().loadNibNamed("TrackedGameView", owner: self, options: nil).last as! TrackedGameItems
+        self.userGamesView = Bundle.main.loadNibNamed("TrackedGameView", owner: self, options: nil)?.last as! TrackedGameItems
         
         //Set Nav controller for subview
         userGamesView.userGameDataDel.setNavController(navigationController!);
         
         //Get our viewFrame
-        viewFrame = CGRectMake(self.view.frame.minX, self.view.frame.minY + self.navigationController!.navigationBar.frame.size.height + 20, self.view.frame.width, self.view.frame.height - self.navigationController!.navigationBar.frame.size.height - 20);
+        viewFrame = CGRect(x: self.view.frame.minX, y: self.view.frame.minY + self.navigationController!.navigationBar.frame.size.height + 20, width: self.view.frame.width, height: self.view.frame.height - self.navigationController!.navigationBar.frame.size.height - 20);
         
         //load the view
         loadUserTrackedGames()
     }
     
-    private func loadUserTrackedGames()
+    fileprivate func loadUserTrackedGames()
     {
         userGamesView.removeFromSuperview()
         
         //Get the loading wheel going
         let loadingView = UIActivityIndicatorView();
-        loadingView.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray;
+        loadingView.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray;
         loadingView.center = self.view.center;
         loadingView.hidesWhenStopped = true;
         self.view.addSubview(loadingView);
@@ -45,7 +45,7 @@ class TrackedGamesController: UIViewController {
         UserDataManager.instance.initializeUser("TODO", pass: "TODO", handleUserInitFin: {() in
             
             //On UI Thread
-            dispatch_async(dispatch_get_main_queue(),{
+            DispatchQueue.main.async(execute: {
                 //Stop loading wheel
                 loadingView.stopAnimating();
                 self.userGamesView.setUserTrackedGames(UserDataManager.instance.UserTrackedGames);
@@ -59,7 +59,7 @@ class TrackedGamesController: UIViewController {
 
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         self.loadUserTrackedGames()
     }
 

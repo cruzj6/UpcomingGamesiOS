@@ -10,9 +10,9 @@ import UIKit
 
 class FriendsTrackedGamesItem: NSObject {
     
-    private var name : String!
-    private var gameItems : [TrackedGameItem]!
-    private var avatarUrl : String!
+    fileprivate var name : String!
+    fileprivate var gameItems : [TrackedGameItem]!
+    fileprivate var avatarUrl : String!
 
     init(name: String, gameItems: [TrackedGameItem], avatarUrl: String)
     {
